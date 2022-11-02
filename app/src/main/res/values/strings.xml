@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">SoCalBeach4Life</string>
     <string name="title_activity_maps">MapsActivity</string>
-
+    <string name="login_button_text">Login</string>
+    <string name="no_account">Haven\'t made an account yet?</string>
+    <string name="welcome">Welcome to SoCalBeach4Life!</string>
+    <string name="register_button_text">Register</string>
 </resources>
