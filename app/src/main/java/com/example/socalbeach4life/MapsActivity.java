@@ -38,6 +38,7 @@ public class MapsActivity extends AppCompatActivity
 
     private final FirebaseFirestore db;
     private ArrayList<Beach> allBeaches;
+    private User currUser;
 
     private FusedLocationProviderClient fusedLocationProviderClient;
 
