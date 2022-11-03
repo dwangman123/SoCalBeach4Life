@@ -1,8 +1,11 @@
 package com.example.socalbeach4life;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -38,6 +43,7 @@ public class MapsActivity extends AppCompatActivity
 
     private final FirebaseFirestore db;
     private ArrayList<Beach> allBeaches;
+    private User currUser;
 
     private FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -57,9 +63,27 @@ public class MapsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_maps);
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("id");
+        DocumentReference userDoc = this.db.collection("users").document(id);
+        userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()){
+                        currUser = document.toObject(User.class);
+                        Toast.makeText(MapsActivity.this, "User loaded.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(MapsActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(MapsActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        setContentView(R.layout.activity_maps);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -76,6 +100,8 @@ public class MapsActivity extends AppCompatActivity
 
         // Prompt the user for permission.
         getLocationPermission();
+
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         // Turn on the My Location layer and the related control on the map.
         updateLocationUI();
