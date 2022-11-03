@@ -85,8 +85,6 @@ public class MapsActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_maps);
 
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -102,6 +100,8 @@ public class MapsActivity extends AppCompatActivity
 
         // Prompt the user for permission.
         getLocationPermission();
+
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         // Turn on the My Location layer and the related control on the map.
         updateLocationUI();
