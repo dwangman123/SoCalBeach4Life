@@ -2,19 +2,16 @@ package com.example.socalbeach4life;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StartActivity extends AppCompatActivity {
-    private FirebaseFirestore db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,7 +99,6 @@ public class StartActivity extends AppCompatActivity {
         }
 
         if (valid) {
-            Toast.makeText(this, "Starting Auth...", Toast.LENGTH_SHORT).show();
             Authorization auth = new Authorization(this);
             auth.login(username, password);
             usernameEdit.setText("");

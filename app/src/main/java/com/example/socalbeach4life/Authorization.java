@@ -51,7 +51,6 @@ public class Authorization {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(StartActivity, "Added user...", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(StartActivity, MapsActivity.class);
                     intent.putExtra("id", id);
                     StartActivity.startActivity(intent);
@@ -63,7 +62,6 @@ public class Authorization {
     }
 
     public void login(String email, String password) {
-        Toast.makeText(StartActivity, "Entered Auth Login...", Toast.LENGTH_SHORT).show();
         DocumentReference authUser = this.db.collection("auth").document(email);
         authUser.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
