@@ -18,7 +18,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,11 +25,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.maps.model.PlacesSearchResponse;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * An activity that displays a map showing the place at the device's current location.
@@ -39,7 +36,6 @@ public class MapsActivity extends AppCompatActivity
         implements OnMapReadyCallback {
 
     private GoogleMap map;
-    private CameraPosition cameraPosition;
 
     private final FirebaseFirestore db;
     private ArrayList<Beach> allBeaches;
@@ -101,6 +97,14 @@ public class MapsActivity extends AppCompatActivity
         // Prompt the user for permission.
         getLocationPermission();
 
+        while(!locationPermissionGranted){
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         // Turn on the My Location layer and the related control on the map.
@@ -108,18 +112,12 @@ public class MapsActivity extends AppCompatActivity
 
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
-
-        getMapsFromDatabase();
     }
 
     /**
      * Gets the current location of the device, and positions the map's camera.
      */
     private void getDeviceLocation() {
-        /*
-         * Get the best and most recent location of the device, which may be null in rare
-         * cases when a location is not available.
-         */
         try {
             if (locationPermissionGranted) {
                 Task<Location> locationResult = fusedLocationProviderClient.getLastLocation();
@@ -133,6 +131,17 @@ public class MapsActivity extends AppCompatActivity
                                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                         new LatLng(lastKnownLocation.getLatitude(),
                                                 lastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+                            }
+                            // Load beaches if not loaded
+                            if(allBeaches.size() == 0){
+                                PlacesSearchResponse request = new NearbyBeachSearch().run(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
+                                for(int i = 0; i<request.results.length && allBeaches.size() < 5; i++){
+                                    if(request.results[i].name.length() > 5 && request.results[i].name.substring(request.results[i].name.length() - 5).toLowerCase().equals("beach")) {
+                                        Beach b = new Beach(request.results[i].name, request.results[i].openingHours != null ? request.results[i].openingHours.toString() : "No hours listed", request.results[i].geometry.location.lat, request.results[i].geometry.location.lng);
+                                        allBeaches.add(b);
+                                    }
+                                }
+                                pinBeaches();
                             }
                         } else {
                             map.moveCamera(CameraUpdateFactory
@@ -202,24 +211,6 @@ public class MapsActivity extends AppCompatActivity
         } catch (SecurityException e)  {
             System.out.println(e.getMessage());
         }
-    }
-
-    public void getMapsFromDatabase() {
-        db.collection("beaches")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Map<String, Object> d = document.getData();
-                                Beach b = new Beach((String) d.get("name"), (String) d.get("hours"), (Double) d.get("latitude"), (Double) d.get("longitude"));
-                                allBeaches.add(b);
-                            }
-                        }
-                        pinBeaches();
-                    }
-                });
     }
 
     public void pinBeaches() {
