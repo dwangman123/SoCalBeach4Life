@@ -23,9 +23,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -69,9 +72,15 @@ public class MapsActivity extends AppCompatActivity
             tvTitle.setText(marker.getTitle());
             TextView tvSnippet = ((TextView)beachContentView.findViewById(R.id.hours));
             tvSnippet.setText(marker.getSnippet());
+            Button showParkingLots = ((Button)beachContentView.findViewById(R.id.showParkingLots));
             if(!marker.getTitle().substring(marker.getTitle().length() - 5).toLowerCase().equals("beach")){
-                Button showParkingLots = ((Button)beachContentView.findViewById(R.id.showParkingLots));
-                showParkingLots.setText("Route to parking lot");
+                if(marker.getSnippet() != null && marker.getSnippet().equals("ROUTE")){
+                    showParkingLots.setText("End route");
+                } else {
+                    showParkingLots.setText("Route to parking lot");
+                }
+            } else {
+                showParkingLots.setText("Show Parking Lots");
             }
             return beachContentView;
         }
@@ -94,6 +103,9 @@ public class MapsActivity extends AppCompatActivity
     private static final int DEFAULT_ZOOM = 10;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean locationPermissionGranted;
+
+    private Polyline currentRoute;
+    private Marker tempMarker;
 
     private Location lastKnownLocation;
 
@@ -297,6 +309,9 @@ public class MapsActivity extends AppCompatActivity
                 parkingLots.add(park);
             }
             pinParkingLots();
+        } else if(marker.getSnippet() != null && marker.getSnippet().equals("ROUTE")){
+            currentRoute.remove();
+            tempMarker.remove();
         } else {
             BeachLocation lot = null;
             for(BeachLocation b: parkingLots){
@@ -359,7 +374,6 @@ public class MapsActivity extends AppCompatActivity
                 String line = "";
                 while ((line = br.readLine()) != null) {
                     sb.append(line);
-                    System.out.println(line);
                 }
                 data = sb.toString();
                 br.close();
@@ -395,19 +409,26 @@ public class MapsActivity extends AppCompatActivity
                 points = new ArrayList<>();
                 lineOptions = new PolylineOptions();
                 List<HashMap<String, String>> path = result.get(i);
-                for (int j = 0; j < path.size(); j++) {
+                for (int j = 0; j < path.size() - 1; j++) {
                     HashMap<String, String> point = path.get(j);
                     double lat = Double.parseDouble(point.get("lat"));
                     double lng = Double.parseDouble(point.get("lng"));
                     LatLng position = new LatLng(lat, lng);
                     points.add(position);
                 }
+                System.out.println(path.get(path.size()-1).get("time"));
                 lineOptions.addAll(points);
                 lineOptions.width(10);
                 lineOptions.color(Color.RED);
+                tempMarker = map.addMarker(new MarkerOptions()
+                        .title(path.get(path.size()-1).get("time"))
+                        .position(new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude()))
+                        .snippet("ROUTE")
+                        .visible(true));
+                tempMarker.showInfoWindow();
             }
             if(lineOptions != null) {
-                map.addPolyline(lineOptions);
+                currentRoute = map.addPolyline(lineOptions);
             }
         }
     }

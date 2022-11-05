@@ -33,6 +33,11 @@ public class DataParser {
                             path.add(hm);
                         }
                     }
+                    HashMap<String, String> hm = new HashMap<>();
+                    String time = (String)((JSONObject) jLegs.get(j)).getJSONObject("duration").get("text");
+                    System.out.println(time);
+                    hm.put("time", time);
+                    path.add(hm);
                     routes.add(path);
                 }
             }
