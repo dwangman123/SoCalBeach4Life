@@ -9,20 +9,20 @@ import com.google.maps.model.RankBy;
 import com.google.maps.model.LatLng;
 import java.io.IOException;
 
-public class NearbyBeachSearch {
-    public PlacesSearchResponse run(double lat, double lng){
+public class NearbySearch {
+    public PlacesSearchResponse run(double lat, double lng, String term, PlaceType type, String key){
         PlacesSearchResponse request = new PlacesSearchResponse();
         GeoApiContext context = new GeoApiContext.Builder()
-                .apiKey("AIzaSyAqYUcSqLwdM7aXMgeKKfxmYwjRf04lAgE")
+                .apiKey(key)
                 .build();
         LatLng location = new LatLng(lat, lng);
         try {
             request = PlacesApi.nearbySearchQuery(context, location)
                     .radius(40000)
                     .rankby(RankBy.PROMINENCE)
-                    .keyword("beach")
+                    .keyword(term)
                     .language("en")
-                    .type(PlaceType.TOURIST_ATTRACTION)
+                    .type(type)
                     .await();
         } catch (ApiException | IOException | InterruptedException e) {
             e.printStackTrace();

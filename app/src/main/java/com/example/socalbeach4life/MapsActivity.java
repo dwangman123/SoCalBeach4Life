@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -19,12 +21,14 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.maps.model.PlaceType;
 import com.google.maps.model.PlacesSearchResponse;
 
 import java.util.ArrayList;
@@ -34,6 +38,28 @@ import java.util.ArrayList;
  */
 public class MapsActivity extends AppCompatActivity
         implements OnMapReadyCallback {
+
+    class BeachWindow implements GoogleMap.InfoWindowAdapter{
+        private final View beachContentView;
+
+        BeachWindow(){
+            beachContentView = getLayoutInflater().inflate(R.layout.beach_marker, null);
+        }
+
+        @Override
+        public View getInfoWindow(@NonNull Marker marker) {
+            TextView tvTitle = ((TextView)beachContentView.findViewById(R.id.name));
+            tvTitle.setText(marker.getTitle());
+            TextView tvSnippet = ((TextView)beachContentView.findViewById(R.id.hours));
+            tvSnippet.setText(marker.getSnippet());
+            return beachContentView;
+        }
+
+        @Override
+        public View getInfoContents(@NonNull Marker marker) {
+            return null;
+        }
+    }
 
     private GoogleMap map;
 
@@ -94,6 +120,8 @@ public class MapsActivity extends AppCompatActivity
     public void onMapReady(GoogleMap map) {
         this.map = map;
 
+        map.setInfoWindowAdapter(new BeachWindow());
+
         // Prompt the user for permission.
         getLocationPermission();
 
@@ -134,7 +162,7 @@ public class MapsActivity extends AppCompatActivity
                             }
                             // Load beaches if not loaded
                             if(allBeaches.size() == 0){
-                                PlacesSearchResponse request = new NearbyBeachSearch().run(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
+                                PlacesSearchResponse request = new NearbySearch().run(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), "beach", PlaceType.TOURIST_ATTRACTION, getString(R.string.google_api_key));
                                 for(int i = 0; i<request.results.length && allBeaches.size() < 5; i++){
                                     if(request.results[i].name.length() > 5 && request.results[i].name.substring(request.results[i].name.length() - 5).toLowerCase().equals("beach")) {
                                         Beach b = new Beach(request.results[i].name, request.results[i].openingHours != null ? request.results[i].openingHours.toString() : "No hours listed", request.results[i].geometry.location.lat, request.results[i].geometry.location.lng);
@@ -216,7 +244,7 @@ public class MapsActivity extends AppCompatActivity
     public void pinBeaches() {
         for (Beach b : allBeaches) {
             LatLng coords = new LatLng(b.getLat(), b.getLong());
-            map.addMarker(new MarkerOptions().position(coords).title(b.getName()));
+            map.addMarker(new MarkerOptions().position(coords).title(b.getName()).snippet(b.getHours()));
             System.out.println(coords);
         }
     }
