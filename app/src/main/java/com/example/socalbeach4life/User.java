@@ -5,7 +5,6 @@ public class User {
     private String name;
     private String phoneNo;
     private String id;
-    // private Trip = Trip[];
     public User() {};
 
     public User(String email, String name, String phoneNo, String id){

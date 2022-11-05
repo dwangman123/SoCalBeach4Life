@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -23,8 +22,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -46,10 +43,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * An activity that displays a map showing the place at the device's current location.
@@ -73,12 +71,11 @@ public class MapsActivity extends AppCompatActivity
             TextView tvSnippet = ((TextView)beachContentView.findViewById(R.id.hours));
             tvSnippet.setText(marker.getSnippet());
             Button showParkingLots = ((Button)beachContentView.findViewById(R.id.showParkingLots));
-            if(!marker.getTitle().substring(marker.getTitle().length() - 5).toLowerCase().equals("beach")){
-                if(marker.getSnippet() != null && marker.getSnippet().equals("ROUTE")){
-                    showParkingLots.setText("End route");
-                } else {
-                    showParkingLots.setText("Route to parking lot");
-                }
+            String snip = marker.getSnippet();
+            if(snip.equals("Route")){
+                showParkingLots.setText("End route");
+            } else if(snip.equals("Parking lot")){
+                showParkingLots.setText("Route to parking lot");
             } else {
                 showParkingLots.setText("Show Parking Lots");
             }
@@ -105,6 +102,9 @@ public class MapsActivity extends AppCompatActivity
     private boolean locationPermissionGranted;
 
     private Polyline currentRoute;
+    private String source;
+    private String destination;
+    private LocalDateTime tripStart;
     private Marker tempMarker;
 
     private Location lastKnownLocation;
@@ -289,13 +289,29 @@ public class MapsActivity extends AppCompatActivity
     public void pinParkingLots(){
         for(BeachLocation l: parkingLots){
             LatLng coords = new LatLng(l.getLat(), l.getLong());
-            map.addMarker(new MarkerOptions().position(coords).title(l.getName()));
+            map.addMarker(new MarkerOptions().position(coords).title(l.getName()).snippet("Parking lot"));
         }
     }
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        if(marker.getTitle().substring(marker.getTitle().length() - 5).toLowerCase().equals("beach")) {
+        if(marker.getSnippet().equals("Parking lot")){
+            BeachLocation lot = null;
+            for(BeachLocation b: parkingLots){
+                if(b.getName().equals(marker.getTitle())){
+                    lot = b;
+                }
+            }
+            String url = getDirectionsURL(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), lot.getLat(), lot.getLong(), "driving");
+            FetchUrl FetchUrl = new FetchUrl();
+            FetchUrl.execute(url);
+            tripStart = LocalDateTime.now();
+        } else if(marker.getSnippet().equals("Route")){
+            currentRoute.remove();
+            tempMarker.remove();
+            Trip currentTrip = new Trip(tripStart, LocalDateTime.now(), source, destination, currUser);
+            currentTrip.upload();
+        } else {
             double lat = 0, lng = 0;
             for (int i = 0; i < allBeaches.size(); i++) {
                 if (allBeaches.get(i).getName().equals(marker.getTitle())) {
@@ -309,19 +325,6 @@ public class MapsActivity extends AppCompatActivity
                 parkingLots.add(park);
             }
             pinParkingLots();
-        } else if(marker.getSnippet() != null && marker.getSnippet().equals("ROUTE")){
-            currentRoute.remove();
-            tempMarker.remove();
-        } else {
-            BeachLocation lot = null;
-            for(BeachLocation b: parkingLots){
-                if(b.getName().equals(marker.getTitle())){
-                    lot = b;
-                }
-            }
-            String url = getDirectionsURL(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), lot.getLat(), lot.getLong(), "driving");
-            FetchUrl FetchUrl = new FetchUrl();
-            FetchUrl.execute(url);
         }
     }
 
@@ -416,15 +419,16 @@ public class MapsActivity extends AppCompatActivity
                     LatLng position = new LatLng(lat, lng);
                     points.add(position);
                 }
-                System.out.println(path.get(path.size()-1).get("time"));
                 lineOptions.addAll(points);
                 lineOptions.width(10);
                 lineOptions.color(Color.RED);
                 tempMarker = map.addMarker(new MarkerOptions()
                         .title(path.get(path.size()-1).get("time"))
                         .position(new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude()))
-                        .snippet("ROUTE")
+                        .snippet("Route")
                         .visible(true));
+                source = path.get(path.size()-1).get("source");
+                destination = path.get(path.size()-1).get("dest");
                 tempMarker.showInfoWindow();
             }
             if(lineOptions != null) {
