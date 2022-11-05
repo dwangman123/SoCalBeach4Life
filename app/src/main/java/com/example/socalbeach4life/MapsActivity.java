@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -18,19 +21,18 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.maps.model.PlaceType;
+import com.google.maps.model.PlacesSearchResponse;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * An activity that displays a map showing the place at the device's current location.
@@ -38,8 +40,50 @@ import java.util.Map;
 public class MapsActivity extends AppCompatActivity
         implements OnMapReadyCallback {
 
+    private ArrayList<BeachLocation> parkingLots;
+
+    class BeachWindow implements GoogleMap.InfoWindowAdapter{
+        private final View beachContentView;
+
+        BeachWindow(){
+            beachContentView = getLayoutInflater().inflate(R.layout.beach_marker, null);
+        }
+
+        @Override
+        public View getInfoWindow(@NonNull Marker marker) {
+            TextView tvTitle = ((TextView)beachContentView.findViewById(R.id.name));
+            tvTitle.setText(marker.getTitle());
+            TextView tvSnippet = ((TextView)beachContentView.findViewById(R.id.hours));
+            tvSnippet.setText(marker.getSnippet());
+            Button showParking = ((Button) beachContentView.findViewById(R.id.showParkingLots));
+            beachContentView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    double lat = 0, lng = 0;
+                    for(int i = 0; i<allBeaches.size(); i++){
+                        if(allBeaches.get(i).getName().equals(marker.getTitle())){
+                            lat = allBeaches.get(i).getLat();
+                            lng = allBeaches.get(i).getLong();
+                        }
+                    }
+                    PlacesSearchResponse request = new NearbySearch().run(lat, lng, "parking", PlaceType.PARKING, getString(R.string.google_maps_key));
+                    for(int i = 0; i < request.results.length && parkingLots.size() < 3; i++){
+                        BeachLocation park = new BeachLocation(request.results[i].geometry.location.lat, request.results[i].geometry.location.lng, request.results[i].name);
+                        parkingLots.add(park);
+                    }
+                    pinParkingLots();
+                }
+            });
+            return beachContentView;
+        }
+
+        @Override
+        public View getInfoContents(@NonNull Marker marker) {
+            return null;
+        }
+    }
+
     private GoogleMap map;
-    private CameraPosition cameraPosition;
 
     private final FirebaseFirestore db;
     private ArrayList<Beach> allBeaches;
@@ -98,8 +142,18 @@ public class MapsActivity extends AppCompatActivity
     public void onMapReady(GoogleMap map) {
         this.map = map;
 
+        map.setInfoWindowAdapter(new BeachWindow());
+
         // Prompt the user for permission.
         getLocationPermission();
+
+        while(!locationPermissionGranted){
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -108,18 +162,12 @@ public class MapsActivity extends AppCompatActivity
 
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
-
-        getMapsFromDatabase();
     }
 
     /**
      * Gets the current location of the device, and positions the map's camera.
      */
     private void getDeviceLocation() {
-        /*
-         * Get the best and most recent location of the device, which may be null in rare
-         * cases when a location is not available.
-         */
         try {
             if (locationPermissionGranted) {
                 Task<Location> locationResult = fusedLocationProviderClient.getLastLocation();
@@ -133,6 +181,20 @@ public class MapsActivity extends AppCompatActivity
                                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                         new LatLng(lastKnownLocation.getLatitude(),
                                                 lastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+                            }
+                            // Load beaches if not loaded
+                            if(allBeaches.size() == 0){
+                                PlacesSearchResponse request = new NearbySearch().run(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), "beach", PlaceType.TOURIST_ATTRACTION, getString(R.string.google_maps_key));
+                                for(int i = 0; i<request.results.length && allBeaches.size() < 5; i++){
+                                    if(request.results[i].name.length() > 5 && request.results[i].name.substring(request.results[i].name.length() - 5).toLowerCase().equals("beach")) {
+                                        Beach b = new Beach(request.results[i].name,
+                                                            request.results[i].openingHours != null && request.results[i].openingHours.weekdayText != null ? request.results[i].openingHours.weekdayText[0] : "No hours listed",
+                                                            request.results[i].geometry.location.lat,
+                                                            request.results[i].geometry.location.lng);
+                                        allBeaches.add(b);
+                                    }
+                                }
+                                pinBeaches();
                             }
                         } else {
                             map.moveCamera(CameraUpdateFactory
@@ -204,30 +266,17 @@ public class MapsActivity extends AppCompatActivity
         }
     }
 
-    public void getMapsFromDatabase() {
-        db.collection("beaches")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Map<String, Object> d = document.getData();
-                                Beach b = new Beach((String) d.get("name"), (String) d.get("hours"), (Double) d.get("latitude"), (Double) d.get("longitude"));
-                                allBeaches.add(b);
-                            }
-                        }
-                        pinBeaches();
-                    }
-                });
-    }
-
     public void pinBeaches() {
         for (Beach b : allBeaches) {
             LatLng coords = new LatLng(b.getLat(), b.getLong());
-            map.addMarker(new MarkerOptions().position(coords).title(b.getName()));
-            System.out.println(coords);
+            map.addMarker(new MarkerOptions().position(coords).title(b.getName()).snippet(b.getHours()));
+        }
+    }
+
+    public void pinParkingLots(){
+        for(BeachLocation l: parkingLots){
+            LatLng coords = new LatLng(l.getLat(), l.getLong());
+            map.addMarker(new MarkerOptions().position(coords).title(l.getName()));
         }
     }
 }
-
