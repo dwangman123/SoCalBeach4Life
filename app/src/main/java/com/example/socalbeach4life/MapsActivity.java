@@ -2,7 +2,9 @@ package com.example.socalbeach4life;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +26,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -32,7 +35,17 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.maps.model.PlaceType;
 import com.google.maps.model.PlacesSearchResponse;
 
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -58,7 +71,7 @@ public class MapsActivity extends AppCompatActivity
             tvSnippet.setText(marker.getSnippet());
             if(!marker.getTitle().substring(marker.getTitle().length() - 5).toLowerCase().equals("beach")){
                 Button showParkingLots = ((Button)beachContentView.findViewById(R.id.showParkingLots));
-                showParkingLots.setVisibility(View.GONE);
+                showParkingLots.setText("Route to parking lot");
             }
             return beachContentView;
         }
@@ -284,6 +297,118 @@ public class MapsActivity extends AppCompatActivity
                 parkingLots.add(park);
             }
             pinParkingLots();
+        } else {
+            BeachLocation lot = null;
+            for(BeachLocation b: parkingLots){
+                if(b.getName().equals(marker.getTitle())){
+                    lot = b;
+                }
+            }
+            String url = getDirectionsURL(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), lot.getLat(), lot.getLong(), "driving");
+            FetchUrl FetchUrl = new FetchUrl();
+            FetchUrl.execute(url);
+        }
+    }
+
+    private String getDirectionsURL(double curLat, double curLng, double destLat, double destLng, String modeName) {
+        String str_origin = "origin=" + curLat + "," + curLng;
+        String str_dest = "destination=" + destLat + "," + destLng;
+        String sensor = "sensor=false";
+        String mode = "mode=" + modeName;
+
+        String parameters = str_origin + "&" + str_dest + "&" + sensor + "&" + mode + "&key=" + getString(R.string.google_maps_key);
+
+        String output = "json";
+
+        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters;
+
+        return url;
+    }
+
+
+    private class FetchUrl extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String[] url) {
+            String data = "";
+            try {
+                data = downloadUrl(url[0]);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+            return data;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            ParserTask parserTask = new ParserTask();
+            parserTask.execute(result);
+        }
+
+        private String downloadUrl(String strUrl) throws IOException {
+            String data = "";
+            InputStream iStream = null;
+            HttpURLConnection urlConnection = null;
+            try {
+                URL url = new URL(strUrl);
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.connect();
+                iStream = urlConnection.getInputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
+                StringBuffer sb = new StringBuffer();
+                String line = "";
+                while ((line = br.readLine()) != null) {
+                    sb.append(line);
+                    System.out.println(line);
+                }
+                data = sb.toString();
+                br.close();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            } finally {
+                iStream.close();
+                urlConnection.disconnect();
+            }
+            return data;
+        }
+    }
+
+    private class ParserTask extends AsyncTask<String, Integer, List<List<HashMap<String, String>>>> {
+        @Override
+        protected List<List<HashMap<String, String>>> doInBackground(String[] jsonData) {
+            JSONObject jObject;
+            List<List<HashMap<String, String>>> routes = null;
+            try {
+                jObject = new JSONObject(jsonData[0]);
+                DataParser parser = new DataParser();
+                routes = parser.parse(jObject);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return routes;
+        }
+        @Override
+        protected void onPostExecute(List<List<HashMap<String, String>>> result) {
+            ArrayList<LatLng> points;
+            PolylineOptions lineOptions = null;
+            for (int i = 0; i < result.size(); i++) {
+                points = new ArrayList<>();
+                lineOptions = new PolylineOptions();
+                List<HashMap<String, String>> path = result.get(i);
+                for (int j = 0; j < path.size(); j++) {
+                    HashMap<String, String> point = path.get(j);
+                    double lat = Double.parseDouble(point.get("lat"));
+                    double lng = Double.parseDouble(point.get("lng"));
+                    LatLng position = new LatLng(lat, lng);
+                    points.add(position);
+                }
+                lineOptions.addAll(points);
+                lineOptions.width(10);
+                lineOptions.color(Color.RED);
+            }
+            if(lineOptions != null) {
+                map.addPolyline(lineOptions);
+            }
         }
     }
 }
