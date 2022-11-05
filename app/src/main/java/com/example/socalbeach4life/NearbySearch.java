@@ -10,7 +10,7 @@ import com.google.maps.model.LatLng;
 import java.io.IOException;
 
 public class NearbySearch {
-    public PlacesSearchResponse run(double lat, double lng, String term, PlaceType type, String key){
+    public PlacesSearchResponse run(double lat, double lng, int radius, String term, PlaceType type, String key){
         PlacesSearchResponse request = new PlacesSearchResponse();
         GeoApiContext context = new GeoApiContext.Builder()
                 .apiKey(key)
@@ -18,7 +18,7 @@ public class NearbySearch {
         LatLng location = new LatLng(lat, lng);
         try {
             request = PlacesApi.nearbySearchQuery(context, location)
-                    .radius(40000)
+                    .radius(radius)
                     .rankby(RankBy.PROMINENCE)
                     .keyword(term)
                     .language("en")
