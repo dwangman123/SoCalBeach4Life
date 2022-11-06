@@ -177,6 +177,12 @@ public class MapsActivity extends AppCompatActivity
         getDeviceLocation();
     }
 
+    public void goToTrips(View view){
+        Intent intent = new Intent(this, ViewTrips.class);
+        intent.putExtra("id", currUser.getId());
+        this.startActivity(intent);
+    }
+
     /**
      * Gets the current location of the device, and positions the map's camera.
      */

@@ -1,10 +1,13 @@
 package com.example.socalbeach4life;
 
+import java.util.List;
+
 public class User {
     private String email;
     private String name;
     private String phoneNo;
     private String id;
+    private List<String> trips;
     public User() {};
 
     public User(String email, String name, String phoneNo, String id){
@@ -29,4 +32,6 @@ public class User {
     public String getId() {
         return id;
     }
+
+    public List<String> getTrips(){ return trips;}
 }
