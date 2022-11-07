@@ -440,10 +440,7 @@ public class MapsActivity extends AppCompatActivity
                 parkingLots.add(park);
             }
             pinParkingLots();
-
-
         }
-
     }
 
     private String getDirectionsURL(double curLat, double curLng, double destLat, double destLng, String modeName) {
