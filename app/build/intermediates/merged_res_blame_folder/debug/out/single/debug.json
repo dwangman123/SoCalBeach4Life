@@ -80,16 +80,16 @@
         "source": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-main-36:/layout/activity_add_review.xml"
     },
     {
-        "merged": "com.example.socalbeach4life.app-merged_res-34:/layout_activity_maps.xml.flat",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_maps.xml"
-    },
-    {
         "merged": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-merged_res-34:/mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-main-36:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
         "merged": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-merged_res-34:/layout_activity_start.xml.flat",
         "source": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-main-36:/layout/activity_start.xml"
+    },
+    {
+        "merged": "com.example.socalbeach4life.app-merged_res-34:/layout_activity_add_review.xml.flat",
+        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_add_review.xml"
     },
     {
         "merged": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-merged_res-34:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",

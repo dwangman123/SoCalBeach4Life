@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/review_box_border.xml" value="0.224" />
+        <entry key="app/src/main/res/layout/activity_add_review.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/activity_review_main.xml" value="0.21041666666666667" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.20208333333333334" />

@@ -20,12 +20,12 @@
         "source": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-main-36:/layout/activity_start.xml"
     },
     {
-        "merged": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_view_reviews.xml",
-        "source": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-main-36:/layout/activity_view_reviews.xml"
+        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_add_review.xml",
+        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_add_review.xml"
     },
     {
-        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_maps.xml",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_maps.xml"
+        "merged": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_view_reviews.xml",
+        "source": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-main-36:/layout/activity_view_reviews.xml"
     },
     {
         "merged": "/Users/vihanraj/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_add_review.xml",
