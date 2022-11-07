@@ -1,0 +1,262 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.socalbeach4life"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+8-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+11-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:6:5-81
+11-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:6:22-78
+12    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+12-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:7:5-79
+12-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:7:22-76
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:8:5-67
+13-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:8:22-64
+14
+15    <!-- Include required permissions for Google Maps API to run. -->
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->[com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:23:5-79
+16-->[com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:23:22-76
+17
+18    <uses-feature
+18-->[com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:26:5-28:35
+19        android:glEsVersion="0x00020000"
+19-->[com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:27:9-41
+20        android:required="true" />
+20-->[com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:28:9-32
+21
+22    <queries>
+22-->[com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:30:5-34:15
+23
+24        <!-- Needs to be explicitly declared on Android R+ -->
+25        <package android:name="com.google.android.apps.maps" />
+25-->[com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:33:9-64
+25-->[com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:33:18-61
+26    </queries>
+27
+28    <uses-permission android:name="android.permission.WAKE_LOCK" />
+28-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:24:5-68
+28-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:24:22-65
+29    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+29-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:25:5-79
+29-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:25:22-76
+30    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+30-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:26:5-110
+30-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:26:22-107
+31
+32    <application
+32-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:10:5-65:19
+33        android:allowBackup="true"
+33-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:11:9-35
+34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+34-->[androidx.core:core:1.8.0] /Users/vihanraj/.gradle/caches/transforms-3/1069db316bca11bc96fb54ef6fc44009/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+35        android:dataExtractionRules="@xml/data_extraction_rules"
+35-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:12:9-65
+36        android:debuggable="true"
+37        android:extractNativeLibs="false"
+38        android:fullBackupContent="@xml/backup_rules"
+38-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:13:9-54
+39        android:icon="@mipmap/ic_launcher"
+39-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:14:9-43
+40        android:label="@string/app_name"
+40-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:15:9-41
+41        android:roundIcon="@mipmap/ic_launcher_round"
+41-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:16:9-54
+42        android:supportsRtl="true"
+42-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:17:9-35
+43        android:testOnly="true"
+44        android:theme="@style/Theme.SoCalBeach4Life" >
+44-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:18:9-53
+45        <activity
+45-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:20:9-22:40
+46            android:name="com.example.socalbeach4life.AddReviewActivity"
+46-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:21:13-46
+47            android:exported="false" />
+47-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:22:13-37
+48        <activity
+48-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:23:9-25:40
+49            android:name="com.example.socalbeach4life.ViewReviewsActivity"
+49-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:24:13-48
+50            android:exported="false" />
+50-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:25:13-37
+51        <activity
+51-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:26:9-28:40
+52            android:name="com.example.socalbeach4life.ReviewMainActivity"
+52-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:27:13-47
+53            android:exported="false" />
+53-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:28:13-37
+54        <activity
+54-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:29:9-31:40
+55            android:name="com.example.socalbeach4life.ViewTrips"
+55-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:30:13-38
+56            android:exported="false" />
+56-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:31:13-37
+57        <activity
+57-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:32:9-41:20
+58            android:name="com.example.socalbeach4life.StartActivity"
+58-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:33:13-42
+59            android:exported="true"
+59-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:34:13-36
+60            android:label="Login" >
+60-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:35:13-34
+61            <intent-filter>
+61-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:36:13-40:29
+62                <action android:name="android.intent.action.MAIN" />
+62-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:37:17-69
+62-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:37:25-66
+63
+64                <category android:name="android.intent.category.LAUNCHER" />
+64-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:39:17-77
+64-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:39:27-74
+65            </intent-filter>
+66        </activity>
+67        <!--
+68             TODO: Before you run your application, you need a Google Maps API key.
+69
+70             To get one, follow the directions here:
+71
+72                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+73
+74             Once you have your API key (it starts with "AIza"), define a new property in your
+75             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+76             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+77        -->
+78        <meta-data
+78-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:53:9-55:71
+79            android:name="com.google.android.geo.API_KEY"
+79-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:54:13-58
+80            android:value="AIzaSyAEWEupyyb2xLmiyBWyflHQiuJqDUoKTng" />
+80-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:55:13-68
+81        <meta-data
+81-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:56:9-58:69
+82            android:name="com.google.android.gms.version"
+82-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:57:13-58
+83            android:value="@integer/google_play_services_version" />
+83-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:58:13-66
+84
+85        <activity
+85-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:60:9-64:36
+86            android:name="com.example.socalbeach4life.MapsActivity"
+86-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:61:13-41
+87            android:exported="true"
+87-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:62:13-36
+88            android:label="@string/title_activity_maps" />
+88-->/Users/vihanraj/Desktop/Work/Project2/SoCalBeach4Life/app/src/main/AndroidManifest.xml:63:13-56
+89        <!-- Needs to be explicitly declared on P+ -->
+90        <uses-library
+90-->[com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:39:9-41:40
+91            android:name="org.apache.http.legacy"
+91-->[com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:40:13-50
+92            android:required="false" />
+92-->[com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:41:13-37
+93
+94        <service
+94-->[com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:16:9-22:19
+95            android:name="com.google.firebase.components.ComponentDiscoveryService"
+95-->[com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:17:13-84
+96            android:directBootAware="true"
+96-->[com.google.firebase:firebase-common:20.2.0] /Users/vihanraj/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:34:13-43
+97            android:exported="false" >
+97-->[com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:18:13-37
+98            <meta-data
+98-->[com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:19:13-21:85
+99                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+99-->[com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:20:17-111
+100                android:value="com.google.firebase.components.ComponentRegistrar" />
+100-->[com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:21:17-82
+101            <meta-data
+101-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:31:13-33:85
+102                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+102-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:32:17-139
+103                android:value="com.google.firebase.components.ComponentRegistrar" />
+103-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:33:17-82
+104            <meta-data
+104-->[com.google.firebase:firebase-installations:17.1.0] /Users/vihanraj/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:17:13-19:85
+105                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+105-->[com.google.firebase:firebase-installations:17.1.0] /Users/vihanraj/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:18:17-127
+106                android:value="com.google.firebase.components.ComponentRegistrar" />
+106-->[com.google.firebase:firebase-installations:17.1.0] /Users/vihanraj/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:19:17-82
+107        </service>
+108
+109        <provider
+109-->[com.google.firebase:firebase-common:20.2.0] /Users/vihanraj/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:25:9-30:39
+110            android:name="com.google.firebase.provider.FirebaseInitProvider"
+110-->[com.google.firebase:firebase-common:20.2.0] /Users/vihanraj/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:26:13-77
+111            android:authorities="com.example.socalbeach4life.firebaseinitprovider"
+111-->[com.google.firebase:firebase-common:20.2.0] /Users/vihanraj/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:27:13-72
+112            android:directBootAware="true"
+112-->[com.google.firebase:firebase-common:20.2.0] /Users/vihanraj/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:28:13-43
+113            android:exported="false"
+113-->[com.google.firebase:firebase-common:20.2.0] /Users/vihanraj/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:29:13-37
+114            android:initOrder="100" />
+114-->[com.google.firebase:firebase-common:20.2.0] /Users/vihanraj/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:30:13-36
+115
+116        <activity
+116-->[com.google.android.gms:play-services-base:18.0.1] /Users/vihanraj/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+117            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+117-->[com.google.android.gms:play-services-base:18.0.1] /Users/vihanraj/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+118            android:exported="false"
+118-->[com.google.android.gms:play-services-base:18.0.1] /Users/vihanraj/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+119            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+119-->[com.google.android.gms:play-services-base:18.0.1] /Users/vihanraj/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+120
+121        <receiver
+121-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:29:9-33:20
+122            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+122-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:30:13-85
+123            android:enabled="true"
+123-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:31:13-35
+124            android:exported="false" >
+124-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:32:13-37
+125        </receiver>
+126
+127        <service
+127-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:35:9-38:40
+128            android:name="com.google.android.gms.measurement.AppMeasurementService"
+128-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:36:13-84
+129            android:enabled="true"
+129-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:37:13-35
+130            android:exported="false" />
+130-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:38:13-37
+131        <service
+131-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:39:9-43:72
+132            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+132-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:40:13-87
+133            android:enabled="true"
+133-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:41:13-35
+134            android:exported="false"
+134-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:42:13-37
+135            android:permission="android.permission.BIND_JOB_SERVICE" />
+135-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:43:13-69
+136
+137        <provider
+137-->[androidx.emoji2:emoji2:1.2.0] /Users/vihanraj/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+138            android:name="androidx.startup.InitializationProvider"
+138-->[androidx.emoji2:emoji2:1.2.0] /Users/vihanraj/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+139            android:authorities="com.example.socalbeach4life.androidx-startup"
+139-->[androidx.emoji2:emoji2:1.2.0] /Users/vihanraj/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+140            android:exported="false" >
+140-->[androidx.emoji2:emoji2:1.2.0] /Users/vihanraj/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+141            <meta-data
+141-->[androidx.emoji2:emoji2:1.2.0] /Users/vihanraj/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+142                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+142-->[androidx.emoji2:emoji2:1.2.0] /Users/vihanraj/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+143                android:value="androidx.startup" />
+143-->[androidx.emoji2:emoji2:1.2.0] /Users/vihanraj/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+144            <meta-data
+144-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/vihanraj/.gradle/caches/transforms-3/06f771c9eca05d7366e9d8c981c19bf6/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+145                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+145-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/vihanraj/.gradle/caches/transforms-3/06f771c9eca05d7366e9d8c981c19bf6/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+146                android:value="androidx.startup" />
+146-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/vihanraj/.gradle/caches/transforms-3/06f771c9eca05d7366e9d8c981c19bf6/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+147        </provider>
+148    </application>
+149
+150</manifest>

@@ -98,6 +98,7 @@ public class MapsActivity extends AppCompatActivity
 
     private final FirebaseFirestore db;
     private ArrayList<Beach> allBeaches;
+    private static ArrayList<Beach> staticAllBeaches;
     private User currUser;
 
     private FusedLocationProviderClient fusedLocationProviderClient;
@@ -123,6 +124,7 @@ public class MapsActivity extends AppCompatActivity
     public MapsActivity() {
         this.db = FirebaseFirestore.getInstance();
         allBeaches = new ArrayList<>();
+        staticAllBeaches = new ArrayList<Beach>();
         parkingLots = new ArrayList<>();
         allRestaurants = new ArrayList<>();
         currentRestaurants = new ArrayList<>();
@@ -198,6 +200,12 @@ public class MapsActivity extends AppCompatActivity
         this.startActivity(intent);
     }
 
+    public void goToReviews(View view) {
+        Intent intent = new Intent(this, ReviewMainActivity.class);
+        intent.putExtra("id", currUser.getId());
+        this.startActivity(intent);
+    }
+
     public void set1000(View view){
         currentRadius = 1000;
     }
@@ -240,6 +248,7 @@ public class MapsActivity extends AppCompatActivity
                                         allBeaches.add(b);
                                     }
                                 }
+                                staticAllBeaches = allBeaches;
                                 pinBeaches();
                             }
                         } else {
@@ -374,6 +383,10 @@ public class MapsActivity extends AppCompatActivity
             pinRestaurants();
         }
         return false;
+    }
+
+    public static ArrayList<Beach> getAllBeaches() {
+        return staticAllBeaches;
     }
 
     @Override

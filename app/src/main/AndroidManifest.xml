@@ -18,6 +18,15 @@
         android:theme="@style/Theme.SoCalBeach4Life"
         tools:targetApi="31">
         <activity
+            android:name=".AddReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewReviewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReviewMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewTrips"
             android:exported="false" />
         <activity
@@ -55,7 +64,7 @@
             android:name=".MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps"
-            tools:targetApi="31"></activity>
+            tools:targetApi="31" />
     </application>
 
 </manifest>
