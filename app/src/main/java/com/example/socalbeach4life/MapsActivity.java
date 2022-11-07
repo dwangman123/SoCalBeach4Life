@@ -126,6 +126,7 @@ public class MapsActivity extends AppCompatActivity
         parkingLots = new ArrayList<>();
         allRestaurants = new ArrayList<>();
         currentRestaurants = new ArrayList<>();
+
     }
 
     @Override
