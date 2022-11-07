@@ -92,6 +92,7 @@ public class MapsActivity extends AppCompatActivity
 
     private final FirebaseFirestore db;
     private ArrayList<Beach> allBeaches;
+    private static ArrayList<Beach> staticAllBeaches;
     private User currUser;
 
     private FusedLocationProviderClient fusedLocationProviderClient;
@@ -112,6 +113,7 @@ public class MapsActivity extends AppCompatActivity
     public MapsActivity() {
         this.db = FirebaseFirestore.getInstance();
         allBeaches = new ArrayList<>();
+        staticAllBeaches = new ArrayList<Beach>();
         parkingLots = new ArrayList<>();
     }
 
@@ -183,6 +185,12 @@ public class MapsActivity extends AppCompatActivity
         this.startActivity(intent);
     }
 
+    public void goToReviews(View view) {
+        Intent intent = new Intent(this, ReviewMainActivity.class);
+        intent.putExtra("id", currUser.getId());
+        this.startActivity(intent);
+    }
+
     /**
      * Gets the current location of the device, and positions the map's camera.
      */
@@ -213,6 +221,7 @@ public class MapsActivity extends AppCompatActivity
                                         allBeaches.add(b);
                                     }
                                 }
+                                staticAllBeaches = allBeaches;
                                 pinBeaches();
                             }
                         } else {
@@ -297,6 +306,10 @@ public class MapsActivity extends AppCompatActivity
             LatLng coords = new LatLng(l.getLat(), l.getLong());
             map.addMarker(new MarkerOptions().position(coords).title(l.getName()).snippet("Parking lot"));
         }
+    }
+
+    public static ArrayList<Beach> getAllBeaches() {
+        return staticAllBeaches;
     }
 
     @Override
