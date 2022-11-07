@@ -22,6 +22,9 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -43,7 +46,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,9 +55,10 @@ import java.util.List;
  * An activity that displays a map showing the place at the device's current location.
  */
 public class MapsActivity extends AppCompatActivity
-        implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+        implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerClickListener {
 
     private ArrayList<BeachLocation> parkingLots;
+    private ArrayList<Restaurant> allRestaurants;
 
     class BeachWindow implements GoogleMap.InfoWindowAdapter{
         private final View beachContentView;
@@ -76,9 +79,12 @@ public class MapsActivity extends AppCompatActivity
                 showParkingLots.setText("End route");
             } else if(snip.equals("Parking lot")){
                 showParkingLots.setText("Route to parking lot");
-            } else {
+            } else if (snip.equals("Restaurant")) {
+                showParkingLots.setText("Menu and Hours");
+            }else{
                 showParkingLots.setText("Show Parking Lots");
             }
+
             return beachContentView;
         }
 
@@ -107,12 +113,19 @@ public class MapsActivity extends AppCompatActivity
     private LocalDateTime tripStart;
     private Marker tempMarker;
 
+    private int currentRadius = 1000;
+
+    private ArrayList<Marker> currentRestaurants;
+    private Circle currentCircle;
+
     private Location lastKnownLocation;
 
     public MapsActivity() {
         this.db = FirebaseFirestore.getInstance();
         allBeaches = new ArrayList<>();
         parkingLots = new ArrayList<>();
+        allRestaurants = new ArrayList<>();
+        currentRestaurants = new ArrayList<>();
     }
 
     @Override
@@ -156,6 +169,7 @@ public class MapsActivity extends AppCompatActivity
 
         map.setInfoWindowAdapter(new BeachWindow());
         map.setOnInfoWindowClickListener(this);
+        map.setOnMarkerClickListener(this);
 
         // Prompt the user for permission.
         getLocationPermission();
@@ -295,8 +309,58 @@ public class MapsActivity extends AppCompatActivity
     public void pinParkingLots(){
         for(BeachLocation l: parkingLots){
             LatLng coords = new LatLng(l.getLat(), l.getLong());
-            map.addMarker(new MarkerOptions().position(coords).title(l.getName()).snippet("Parking lot"));
+            map.addMarker(new MarkerOptions().position(coords).title(l.getName()).snippet("Parking lot").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
         }
+    }
+
+    public void pinRestaurants(){
+        for (Restaurant r: allRestaurants){
+            LatLng coords = new LatLng(r.getLat(), r.getLong());
+            Marker marker = map.addMarker(new MarkerOptions().position(coords).title(r.getName()).snippet("Restaurant").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+            currentRestaurants.add(marker);
+        }
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker){
+        if (!marker.getSnippet().equals("Parking lot") && !marker.getSnippet().equals("Route") && !marker.getSnippet().equals("Restaurant")){
+            //TODO: add support for radius change
+
+            allRestaurants.clear();
+
+            for (Marker m : currentRestaurants) {
+                m.remove();
+            }
+
+            if (currentCircle != null) {
+                currentCircle.remove();
+            }
+
+
+            double lat = 0, lng = 0;
+            for (int i = 0; i < allBeaches.size(); i++) {
+                if (allBeaches.get(i).getName().equals(marker.getTitle())) {
+                    lat = allBeaches.get(i).getLat();
+                    lng = allBeaches.get(i).getLong();
+                }
+            }
+
+            CircleOptions circleOptions = new CircleOptions();
+            LatLng ll = new LatLng(lat, lng);
+            circleOptions.center(ll);
+            circleOptions.radius(currentRadius);
+            circleOptions.fillColor(0x30ff0000);
+            currentCircle = map.addCircle(circleOptions);
+
+
+            PlacesSearchResponse request = new NearbySearch().run(lat, lng, currentRadius, "", PlaceType.RESTAURANT, getString(R.string.google_maps_key));
+            for (int i = 0; i < request.results.length && allRestaurants.size() < 6; i++) {
+                Restaurant r = new Restaurant(request.results[i].geometry.location.lat, request.results[i].geometry.location.lng, request.results[i].name);
+                allRestaurants.add(r);
+            }
+            pinRestaurants();
+        }
+        return false;
     }
 
     @Override
@@ -317,7 +381,26 @@ public class MapsActivity extends AppCompatActivity
             tempMarker.remove();
             Trip currentTrip = new Trip(tripStart, LocalDateTime.now(), source, destination, currUser);
             currentTrip.upload();
+        } else if (marker.getSnippet().equals("Restaurant")) {
+            //TODO: display menu and hours information
+            Intent intent = new Intent(this, ViewRestaurant.class);
+            intent.putExtra("id", currUser.getId());
+            double lat = 0, lng = 0;
+            String name = "";
+            for (int i = 0; i < allRestaurants.size(); i++) {
+                if (allRestaurants.get(i).getName().equals(marker.getTitle())) {
+                    lat = allRestaurants.get(i).getLat();
+                    lng = allRestaurants.get(i).getLong();
+                    name = allRestaurants.get(i).getName();
+                }
+            }
+
+            intent.putExtra("lat", lat);
+            intent.putExtra("lng", lng);
+            intent.putExtra("name", name);
+            this.startActivity(intent);
         } else {
+            parkingLots.clear();
             double lat = 0, lng = 0;
             for (int i = 0; i < allBeaches.size(); i++) {
                 if (allBeaches.get(i).getName().equals(marker.getTitle())) {
@@ -331,7 +414,10 @@ public class MapsActivity extends AppCompatActivity
                 parkingLots.add(park);
             }
             pinParkingLots();
+
+
         }
+
     }
 
     private String getDirectionsURL(double curLat, double curLng, double destLat, double destLng, String modeName) {

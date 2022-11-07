@@ -25,5 +25,6 @@
             android:layout_height="match_parent"
             android:text="Trips"
             android:onClick="goToTrips"/>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
