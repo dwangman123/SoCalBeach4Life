@@ -1,6 +1,7 @@
 package com.example.socalbeach4life;
 
-import android.media.Image;
+
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -16,6 +17,7 @@ public class ReviewWrapper {
         this.beachName = beachName;
         this.rating = 0;
         this.reviewCount = 0;
+        this.reviewArrayList = new ArrayList<Review>();
     }
 
     public String getBeachName() {
@@ -36,15 +38,31 @@ public class ReviewWrapper {
 
     public void addToReviews(Review newReview) {
         reviewArrayList.add(newReview);
+        this.rating = 0;
+        for (int i = 0; i< reviewArrayList.size(); i++) {
+            this.rating += reviewArrayList.get(i).getRating();
+        }
+        this.reviewCount = this.reviewArrayList.size();
+        this.rating = this.rating/this.reviewCount;
     }
 
-    public void setReviews(ArrayList<Map<String, Object>> fromDb) {
+    public void setReviews(@NonNull ArrayList<Map<String, Object>> fromDb) {
         for (int i =0; i< fromDb.size(); i++) {
             Map<String, Object> tempReview = fromDb.get(i);
             this.rating += (float) tempReview.get("rating");
-            addToReviews(new Review((float)tempReview.get("rating"), (String)tempReview.get("description"), (Image)tempReview.get("picture"), (String)tempReview.get("userId")));
+            addToReviews(new Review((float)tempReview.get("rating"), (String)tempReview.get("description"), (String)tempReview.get("userId"), (boolean)tempReview.get("anonymous"), (String)tempReview.get("userName")));
         }
 
+        this.reviewCount = this.reviewArrayList.size();
+        this.rating = this.rating/this.reviewCount;
+    }
+
+    public void setReviewArrayList(ArrayList<Review> newReviews){
+        this.reviewArrayList = newReviews;
+        this.rating = 0;
+        for (int i = 0; i< reviewArrayList.size(); i++) {
+            this.rating += reviewArrayList.get(i).getRating();
+        }
         this.reviewCount = this.reviewArrayList.size();
         this.rating = this.rating/this.reviewCount;
     }

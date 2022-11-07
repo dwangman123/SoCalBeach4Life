@@ -4,6 +4,7 @@ package com.example.socalbeach4life.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,16 +21,21 @@ public final class ActivityViewReviewsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView idView;
+  public final TextView beachNameView;
 
   @NonNull
-  public final TextView nameView;
+  public final LinearLayout otherReviews;
 
-  private ActivityViewReviewsBinding(@NonNull ConstraintLayout rootView, @NonNull TextView idView,
-      @NonNull TextView nameView) {
+  @NonNull
+  public final LinearLayout userReviews;
+
+  private ActivityViewReviewsBinding(@NonNull ConstraintLayout rootView,
+      @NonNull TextView beachNameView, @NonNull LinearLayout otherReviews,
+      @NonNull LinearLayout userReviews) {
     this.rootView = rootView;
-    this.idView = idView;
-    this.nameView = nameView;
+    this.beachNameView = beachNameView;
+    this.otherReviews = otherReviews;
+    this.userReviews = userReviews;
   }
 
   @Override
@@ -59,19 +65,26 @@ public final class ActivityViewReviewsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.idView;
-      TextView idView = ViewBindings.findChildViewById(rootView, id);
-      if (idView == null) {
+      id = R.id.beachNameView;
+      TextView beachNameView = ViewBindings.findChildViewById(rootView, id);
+      if (beachNameView == null) {
         break missingId;
       }
 
-      id = R.id.nameView;
-      TextView nameView = ViewBindings.findChildViewById(rootView, id);
-      if (nameView == null) {
+      id = R.id.otherReviews;
+      LinearLayout otherReviews = ViewBindings.findChildViewById(rootView, id);
+      if (otherReviews == null) {
         break missingId;
       }
 
-      return new ActivityViewReviewsBinding((ConstraintLayout) rootView, idView, nameView);
+      id = R.id.userReviews;
+      LinearLayout userReviews = ViewBindings.findChildViewById(rootView, id);
+      if (userReviews == null) {
+        break missingId;
+      }
+
+      return new ActivityViewReviewsBinding((ConstraintLayout) rootView, beachNameView,
+          otherReviews, userReviews);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

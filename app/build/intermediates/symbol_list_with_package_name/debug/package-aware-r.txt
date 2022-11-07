@@ -2656,6 +2656,7 @@ id allStates
 id always
 id animateToEnd
 id animateToStart
+id anonCheck
 id antiClockwise
 id anticipate
 id arc
@@ -2668,6 +2669,7 @@ id autoCompleteToStart
 id backToMap
 id barrier
 id baseline
+id beachNameView
 id beginOnFirstDraw
 id beginning
 id bestChoice
@@ -2804,7 +2806,6 @@ id hybrid
 id icon
 id icon_group
 id icon_only
-id idView
 id ifRoom
 id ignore
 id ignoreRequest
@@ -2892,7 +2893,6 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id name
-id nameView
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -2914,6 +2914,7 @@ id notification_main_column_container
 id off
 id on
 id onInterceptTouchReturnSwipe
+id otherReviews
 id outline
 id outward
 id overshoot
@@ -2934,6 +2935,7 @@ id postLayout
 id progress_circular
 id progress_horizontal
 id radio
+id ratingEditText
 id ratio
 id rectangles
 id registerButton
@@ -2942,6 +2944,7 @@ id registerPasswordTextInput
 id registerPhoneTextInput
 id registerUsernameTextInput
 id reverseSawtooth
+id reviewDescription
 id reviewsScrollView
 id right
 id rightToLeft
@@ -3069,6 +3072,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userReviews
 id vertical_only
 id view_offset_helper
 id view_transition
