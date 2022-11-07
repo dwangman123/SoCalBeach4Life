@@ -197,6 +197,18 @@ public class MapsActivity extends AppCompatActivity
         this.startActivity(intent);
     }
 
+    public void set1000(View view){
+        currentRadius = 1000;
+    }
+
+    public void set2000(View view){
+        currentRadius = 2000;
+    }
+
+    public void set3000(View view){
+        currentRadius = 3000;
+    }
+
     /**
      * Gets the current location of the device, and positions the map's camera.
      */
