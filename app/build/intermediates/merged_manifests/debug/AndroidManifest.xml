@@ -55,6 +55,9 @@
             android:name="com.example.socalbeach4life.ViewTrips"
             android:exported="false" />
         <activity
+            android:name="com.example.socalbeach4life.ViewRestaurant"
+            android:exported="false" />
+        <activity
             android:name="com.example.socalbeach4life.StartActivity"
             android:exported="true"
             android:label="Login" >

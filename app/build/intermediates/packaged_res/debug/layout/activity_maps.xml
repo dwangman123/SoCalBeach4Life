@@ -24,12 +24,33 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Trips"
-            android:onClick="goToTrips" />
+            android:onClick="goToTrips"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Reviews"
-            android:onClick="goToReviews"
-            android:layout_marginStart="10dp"/>
+            android:onClick="goToReviews" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="1000"
+            android:onClick="set1000"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="2000"
+            android:onClick="set2000"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="3000"
+            android:onClick="set3000"/>
+
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

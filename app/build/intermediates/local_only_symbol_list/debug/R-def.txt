@@ -36,6 +36,7 @@ layout activity_add_review
 layout activity_maps
 layout activity_review_main
 layout activity_start
+layout activity_view_restaurant
 layout activity_view_reviews
 layout activity_view_trips
 layout beach_marker
@@ -55,6 +56,7 @@ string project_id
 string register_button_text
 string title_activity_maps
 string welcome
+string yelp_key
 style Theme.SoCalBeach4Life
 xml backup_rules
 xml data_extraction_rules

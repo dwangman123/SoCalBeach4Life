@@ -1,5 +1,7 @@
 package com.example.socalbeach4life;
 
+import static java.lang.Thread.sleep;
+
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -179,7 +181,7 @@ public class MapsActivity extends AppCompatActivity
 
         while(!locationPermissionGranted){
             try {
-                Thread.sleep(10);
+                sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -238,6 +240,11 @@ public class MapsActivity extends AppCompatActivity
                             }
                             // Load beaches if not loaded
                             if(allBeaches.size() == 0){
+                                try {
+                                    sleep(1000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 PlacesSearchResponse request = new NearbySearch().run(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), 40000, "beach", PlaceType.TOURIST_ATTRACTION, getString(R.string.google_maps_key));
                                 for(int i = 0; i<request.results.length && allBeaches.size() < 5; i++){
                                     if(request.results[i].name.length() > 5 && request.results[i].name.substring(request.results[i].name.length() - 5).toLowerCase().equals("beach")) {
@@ -346,7 +353,6 @@ public class MapsActivity extends AppCompatActivity
     @Override
     public boolean onMarkerClick(Marker marker){
         if (!marker.getSnippet().equals("Parking lot") && !marker.getSnippet().equals("Route") && !marker.getSnippet().equals("Restaurant")){
-            //TODO: add support for radius change
 
             allRestaurants.clear();
 
@@ -408,7 +414,6 @@ public class MapsActivity extends AppCompatActivity
             Trip currentTrip = new Trip(tripStart, LocalDateTime.now(), source, destination, currUser);
             currentTrip.upload();
         } else if (marker.getSnippet().equals("Restaurant")) {
-            //TODO: display menu and hours information
             Intent intent = new Intent(this, ViewRestaurant.class);
             intent.putExtra("id", currUser.getId());
             double lat = 0, lng = 0;

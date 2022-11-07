@@ -3189,6 +3189,7 @@ layout activity_add_review
 layout activity_maps
 layout activity_review_main
 layout activity_start
+layout activity_view_restaurant
 layout activity_view_reviews
 layout activity_view_trips
 layout beach_marker
@@ -3440,6 +3441,7 @@ string search_menu_title
 string status_bar_notification_info_overflow
 string title_activity_maps
 string welcome
+string yelp_key
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
