@@ -2761,6 +2761,7 @@ int id edit_query 0x7f0800b6
 int id edittext_dropdown_editable 0x7f0800b7
 int id edittext_dropdown_noneditable 0x7f0800b8
 int id elastic 0x7f0800b9
+int id emailView 0x7f080204
 int id end 0x7f0800ba
 int id endToStart 0x7f0800bb
 int id enterAlways 0x7f0800bc
@@ -2892,6 +2893,7 @@ int id mtrl_picker_title_text 0x7f080139
 int id mtrl_view_tag_bottom_padding 0x7f08013a
 int id multiply 0x7f08013b
 int id name 0x7f08013c
+int id nameView 0x7f080205
 int id navigation_bar_item_active_indicator_view 0x7f08013d
 int id navigation_bar_item_icon_container 0x7f08013e
 int id navigation_bar_item_icon_view 0x7f08013f
@@ -2928,6 +2930,7 @@ int id path 0x7f08015d
 int id pathRelative 0x7f08015e
 int id peekHeight 0x7f08015f
 int id percent 0x7f080160
+int id phoneView 0x7f080206
 int id pin 0x7f080161
 int id position 0x7f080162
 int id postLayout 0x7f080163
@@ -3185,6 +3188,7 @@ int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
 int layout activity_add_review 0x7f0b001c
+int layout activity_logout 0x7f0b007e
 int layout activity_maps 0x7f0b001d
 int layout activity_review_main 0x7f0b001e
 int layout activity_start 0x7f0b001f

@@ -13,6 +13,7 @@ drawable review_box_border
 id anonCheck
 id backToMap
 id beachNameView
+id emailView
 id hours
 id loginButton
 id loginPasswordTextInput
@@ -20,7 +21,9 @@ id loginUsernameTextInput
 id map
 id messageView
 id name
+id nameView
 id otherReviews
+id phoneView
 id ratingEditText
 id registerButton
 id registerNameTextInput
@@ -33,6 +36,7 @@ id showParkingLots
 id trips
 id userReviews
 layout activity_add_review
+layout activity_logout
 layout activity_maps
 layout activity_review_main
 layout activity_start

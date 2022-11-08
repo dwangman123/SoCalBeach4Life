@@ -13,17 +13,20 @@
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:id="@+id/nameView"
-            android:textSize="25sp"/>
+            android:textSize="25sp"
+            android:gravity="center"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:id="@+id/emailView"
-            android:textSize="25sp"/>
+            android:textSize="25sp"
+            android:gravity="center"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:id="@+id/phoneView"
-            android:textSize="25sp"/>
+            android:textSize="25sp"
+            android:gravity="center"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"

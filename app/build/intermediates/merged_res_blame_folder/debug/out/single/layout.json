@@ -20,6 +20,10 @@
         "source": "/Users/ronakpai/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-main-36:/layout/activity_review_main.xml"
     },
     {
+        "merged": "/Users/ronakpai/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_logout.xml",
+        "source": "/Users/ronakpai/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-main-36:/layout/activity_logout.xml"
+    },
+    {
         "merged": "/Users/ronakpai/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_view_trips.xml",
         "source": "/Users/ronakpai/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-main-36:/layout/activity_view_trips.xml"
     },
@@ -28,8 +32,8 @@
         "source": "/Users/ronakpai/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-main-36:/layout/activity_view_reviews.xml"
     },
     {
-        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_view_trips.xml",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_view_trips.xml"
+        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_maps.xml",
+        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_maps.xml"
     },
     {
         "merged": "/Users/ronakpai/.gradle/daemon/7.3.3/com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_view_restaurant.xml",
