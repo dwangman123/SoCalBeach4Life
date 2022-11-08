@@ -14,8 +14,6 @@
   <component name="ChangeListManager">
     <list default="true" id="471537a6-3850-480e-8ec8-9f5c1d2757ac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/socalbeach4life/LogoutActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/socalbeach4life/LogoutActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/socalbeach4life/MapsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/socalbeach4life/MapsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

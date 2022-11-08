@@ -24,7 +24,7 @@ public class LogoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         this.db = FirebaseFirestore.getInstance();
-
+        setContentView(R.layout.activity_logout);
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");
         DocumentReference userDoc = this.db.collection("users").document(id);
@@ -36,22 +36,21 @@ public class LogoutActivity extends AppCompatActivity {
                     if (document.exists()){
                         currUser = document.toObject(User.class);
                         Toast.makeText(LogoutActivity.this, "User loaded.", Toast.LENGTH_SHORT).show();
+                        TextView nameView = (TextView) findViewById(R.id.nameView);
+                        TextView emailView = (TextView) findViewById(R.id.emailView);
+                        TextView phoneView = (TextView) findViewById(R.id.phoneView);
+                        nameView.setText(currUser.getName());
+                        emailView.setText(currUser.getEmail());
+                        phoneView.setText(currUser.getPhoneNo());
                     } else {
                         Toast.makeText(LogoutActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(LogoutActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
                 }
-                setContentView(R.layout.activity_logout);
             }
         });
 
-        TextView nameView = (TextView) findViewById(R.id.nameView);
-        TextView emailView = (TextView) findViewById(R.id.emailView);
-        TextView phoneView = (TextView) findViewById(R.id.phoneView);
-        nameView.setText(currUser.getName());
-        emailView.setText(currUser.getEmail());
-        phoneView.setText(currUser.getPhoneNo());
 
     }
 
