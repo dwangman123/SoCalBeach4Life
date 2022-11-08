@@ -576,7 +576,7 @@ public class MapsActivity extends AppCompatActivity
                 destination = path.get(path.size()-1).get("dest");
                 boolean isBeach = false;
                 for(Beach b: allBeaches){
-                    float[] results = null;
+                    float[] results = new float[1];
                     Location.distanceBetween(Double.parseDouble(path.get(path.size()-1).get("startLat")), Double.parseDouble(path.get(path.size()-1).get("startLng")), b.getLat(), b.getLong(), results);
                     if(results[0] < 50){
                         isBeach = true;
