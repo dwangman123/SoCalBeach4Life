@@ -42,8 +42,9 @@ public class DataParser {
                     hm.put("dest", dest);
                     double startLng = (double) ((JSONObject) jLegs.get(j)).getJSONObject("start_location").get("lng");
                     double startLat = (double) ((JSONObject) jLegs.get(j)).getJSONObject("start_location").get("lat");
-                    hm.put("startLng", Double.toString(startLat));
-                    hm.put("startLat", Double.toString(startLng));
+                    System.out.println(startLat);
+                    hm.put("startLng", Double.toString(startLng));
+                    hm.put("startLat", Double.toString(startLat));
                     path.add(hm);
                     routes.add(path);
                 }

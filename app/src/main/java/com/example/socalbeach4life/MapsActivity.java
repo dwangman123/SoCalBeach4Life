@@ -396,6 +396,12 @@ public class MapsActivity extends AppCompatActivity
             }
             pinRestaurants();
         } else if(marker.getSnippet().equals("Restaurant")){
+            if(currentRoute != null){
+                currentRoute.remove();
+                currentRoute = null;
+                tempMarker.remove();
+                tempMarker = null;
+            }
             Restaurant res = null;
             for(Restaurant r: allRestaurants){
                 if(r.getName().equals(marker.getTitle())){
@@ -563,12 +569,22 @@ public class MapsActivity extends AppCompatActivity
                 lineOptions.color(Color.RED);
                 tempMarker = map.addMarker(new MarkerOptions()
                         .title(path.get(path.size()-1).get("time"))
-                        .position(new LatLng(Double.parseDouble(path.get(path.size()-1).get("startLat")), Double.parseDouble(path.get(path.size()-1).get("startlng"))))
+                        .position(new LatLng(Double.parseDouble(path.get(path.size()-1).get("startLat")), Double.parseDouble(path.get(path.size()-1).get("startLng"))))
                         .snippet("Route")
                         .visible(true));
                 source = path.get(path.size()-1).get("source");
                 destination = path.get(path.size()-1).get("dest");
-                tempMarker.showInfoWindow();
+                boolean isBeach = false;
+                for(Beach b: allBeaches){
+                    float[] results = null;
+                    Location.distanceBetween(Double.parseDouble(path.get(path.size()-1).get("startLat")), Double.parseDouble(path.get(path.size()-1).get("startLng")), b.getLat(), b.getLong(), results);
+                    if(results[0] < 50){
+                        isBeach = true;
+                    }
+                }
+                if(!isBeach){
+                    tempMarker.showInfoWindow();
+                }
             }
             if(lineOptions != null) {
                 currentRoute = map.addPolyline(lineOptions);
