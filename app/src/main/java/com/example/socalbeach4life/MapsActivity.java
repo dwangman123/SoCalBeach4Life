@@ -240,10 +240,12 @@ public class MapsActivity extends AppCompatActivity
                             }
                             // Load beaches if not loaded
                             if(allBeaches.size() == 0){
-                                try {
-                                    sleep(1000);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
+                                while(lastKnownLocation == null) {
+                                    try{
+                                        sleep(1000);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
                                 }
                                 PlacesSearchResponse request = new NearbySearch().run(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), 40000, "beach", PlaceType.TOURIST_ATTRACTION, getString(R.string.google_maps_key));
                                 for(int i = 0; i<request.results.length && allBeaches.size() < 5; i++){
