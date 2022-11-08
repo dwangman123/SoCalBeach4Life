@@ -208,6 +208,12 @@ public class MapsActivity extends AppCompatActivity
         this.startActivity(intent);
     }
 
+    public void goUserPage(View view) {
+        Intent intent = new Intent(this, LogoutActivity.class);
+        intent.putExtra("id", currUser.getId());
+        this.startActivity(intent);
+    }
+
     public void set1000(View view){
         currentRadius = 1000;
     }

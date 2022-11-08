@@ -57,12 +57,12 @@ public class LogoutActivity extends AppCompatActivity {
 
     public void logout(View view) {
         Intent intent = new Intent(this, StartActivity.class);
-        startActivity(intent);
+        this.startActivity(intent);
     }
 
     public void backToMap(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
         intent.putExtra("id", currUser.getId());
-        startActivity(intent);
+        this.startActivity(intent);
     }
 }
