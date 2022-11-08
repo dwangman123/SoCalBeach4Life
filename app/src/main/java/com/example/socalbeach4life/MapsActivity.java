@@ -391,10 +391,21 @@ public class MapsActivity extends AppCompatActivity
 
             PlacesSearchResponse request = new NearbySearch().run(lat, lng, currentRadius, "", PlaceType.RESTAURANT, getString(R.string.google_maps_key));
             for (int i = 0; i < request.results.length && allRestaurants.size() < 6; i++) {
-                Restaurant r = new Restaurant(request.results[i].geometry.location.lat, request.results[i].geometry.location.lng, request.results[i].name);
+                Restaurant r = new Restaurant(request.results[i].geometry.location.lat, request.results[i].geometry.location.lng, request.results[i].name, lat, lng);
                 allRestaurants.add(r);
             }
             pinRestaurants();
+        } else if(marker.getSnippet().equals("Restaurant")){
+            Restaurant res = null;
+            for(Restaurant r: allRestaurants){
+                if(r.getName().equals(marker.getTitle())){
+                    res = r;
+                }
+            }
+            String url = getDirectionsURL(res.getBeachLat(), res.getBeachlng(), res.getLat(), res.getLong(), "walking");
+            FetchUrl FetchUrl = new FetchUrl();
+            FetchUrl.execute(url);
+            tripStart = LocalDateTime.now();
         }
         return false;
     }
@@ -552,7 +563,7 @@ public class MapsActivity extends AppCompatActivity
                 lineOptions.color(Color.RED);
                 tempMarker = map.addMarker(new MarkerOptions()
                         .title(path.get(path.size()-1).get("time"))
-                        .position(new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude()))
+                        .position(new LatLng(Double.parseDouble(path.get(path.size()-1).get("startLat")), Double.parseDouble(path.get(path.size()-1).get("startlng"))))
                         .snippet("Route")
                         .visible(true));
                 source = path.get(path.size()-1).get("source");

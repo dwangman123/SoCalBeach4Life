@@ -43,6 +43,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.SoCalBeach4Life" >
         <activity
+            android:name="com.example.socalbeach4life.LogoutActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.socalbeach4life.AddReviewActivity"
             android:exported="false" />
         <activity

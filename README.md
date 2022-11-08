@@ -10,7 +10,7 @@ Finally, please do not use the API key within this project for anything else. It
 # Features
 When first opening the app, you will see a login/register page. From there, you can open the map. 
 
-On the map, you should see beaches and your current location. Clicking any beach will show restaurants within 1000 feet. You can change the radius of the restaurant search in the footer of the app.
+On the map, you should see beaches and your current location. Clicking any beach will show restaurants within 1000 feet. You can change the radius of the restaurant search in the footer of the app. Clicking on a restaurant should route to the restaurant and show an ETA of walking there, along with storing the trip in your profile. 
 
 Clicking on the beach will show nearby parking lots. Clicking on a parking lot will show a route from your current location to the parking lot. It will also show the ETA for the trip as a marker on your current location. 
 
