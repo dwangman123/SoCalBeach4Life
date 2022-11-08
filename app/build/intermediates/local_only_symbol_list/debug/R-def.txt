@@ -56,7 +56,6 @@ string project_id
 string register_button_text
 string title_activity_maps
 string welcome
-string yelp_key
 style Theme.SoCalBeach4Life
 xml backup_rules
 xml data_extraction_rules
