@@ -71,198 +71,197 @@
 41-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:16:9-54
 42        android:supportsRtl="true"
 42-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:17:9-35
-43        android:testOnly="true"
-44        android:theme="@style/Theme.SoCalBeach4Life" >
-44-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:18:9-53
-45        <activity
-45-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:20:9-22:40
-46            android:name="com.example.socalbeach4life.AddReviewActivity"
-46-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:21:13-46
-47            android:exported="false" />
-47-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:22:13-37
-48        <activity
-48-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:23:9-25:40
-49            android:name="com.example.socalbeach4life.ViewReviewsActivity"
-49-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:24:13-48
-50            android:exported="false" />
-50-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:25:13-37
-51        <activity
-51-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:26:9-28:40
-52            android:name="com.example.socalbeach4life.ReviewMainActivity"
-52-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:27:13-47
-53            android:exported="false" />
-53-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:28:13-37
-54        <activity
-54-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:29:9-31:40
-55            android:name="com.example.socalbeach4life.ViewTrips"
-55-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:30:13-38
-56            android:exported="false" />
-56-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:31:13-37
-57        <activity
-57-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:32:9-34:40
-58            android:name="com.example.socalbeach4life.ViewRestaurant"
-58-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:33:13-43
-59            android:exported="false" />
-59-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:34:13-37
-60        <activity
-60-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:35:9-44:20
-61            android:name="com.example.socalbeach4life.StartActivity"
-61-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:36:13-42
-62            android:exported="true"
-62-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:37:13-36
-63            android:label="Login" >
-63-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:38:13-34
-64            <intent-filter>
-64-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:39:13-43:29
-65                <action android:name="android.intent.action.MAIN" />
-65-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:40:17-69
-65-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:40:25-66
-66
-67                <category android:name="android.intent.category.LAUNCHER" />
-67-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:42:17-77
-67-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:42:27-74
-68            </intent-filter>
-69        </activity>
-70        <!--
-71             TODO: Before you run your application, you need a Google Maps API key.
-72
-73             To get one, follow the directions here:
-74
-75                https://developers.google.com/maps/documentation/android-sdk/get-api-key
-76
-77             Once you have your API key (it starts with "AIza"), define a new property in your
-78             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
-79             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
-80        -->
-81        <meta-data
-81-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:56:9-58:71
-82            android:name="com.google.android.geo.API_KEY"
-82-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:57:13-58
-83            android:value="AIzaSyAEWEupyyb2xLmiyBWyflHQiuJqDUoKTng" />
-83-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:58:13-68
-84        <meta-data
-84-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:59:9-61:69
-85            android:name="com.google.android.gms.version"
-85-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:60:13-58
-86            android:value="@integer/google_play_services_version" />
-86-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:61:13-66
-87
-88        <activity
-88-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:63:9-67:36
-89            android:name="com.example.socalbeach4life.MapsActivity"
-89-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:64:13-41
-90            android:exported="true"
-90-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:65:13-36
-91            android:label="@string/title_activity_maps" />
-91-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:66:13-56
-92        <!-- Needs to be explicitly declared on P+ -->
-93        <uses-library
-93-->[com.google.android.gms:play-services-maps:17.0.1] /Users/dennis/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:39:9-41:40
-94            android:name="org.apache.http.legacy"
-94-->[com.google.android.gms:play-services-maps:17.0.1] /Users/dennis/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:40:13-50
-95            android:required="false" />
-95-->[com.google.android.gms:play-services-maps:17.0.1] /Users/dennis/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:41:13-37
-96
-97        <service
-97-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:16:9-22:19
-98            android:name="com.google.firebase.components.ComponentDiscoveryService"
-98-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:17:13-84
-99            android:directBootAware="true"
-99-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:34:13-43
-100            android:exported="false" >
-100-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:18:13-37
-101            <meta-data
-101-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:19:13-21:85
-102                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-102-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:20:17-111
-103                android:value="com.google.firebase.components.ComponentRegistrar" />
-103-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:21:17-82
-104            <meta-data
-104-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/dennis/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:31:13-33:85
-105                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-105-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/dennis/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:32:17-139
-106                android:value="com.google.firebase.components.ComponentRegistrar" />
-106-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/dennis/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:33:17-82
-107            <meta-data
-107-->[com.google.firebase:firebase-installations:17.1.0] /Users/dennis/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:17:13-19:85
-108                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-108-->[com.google.firebase:firebase-installations:17.1.0] /Users/dennis/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:18:17-127
-109                android:value="com.google.firebase.components.ComponentRegistrar" />
-109-->[com.google.firebase:firebase-installations:17.1.0] /Users/dennis/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:19:17-82
-110        </service>
-111
-112        <provider
-112-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:25:9-30:39
-113            android:name="com.google.firebase.provider.FirebaseInitProvider"
-113-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:26:13-77
-114            android:authorities="com.example.socalbeach4life.firebaseinitprovider"
-114-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:27:13-72
-115            android:directBootAware="true"
-115-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:28:13-43
-116            android:exported="false"
-116-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:29:13-37
-117            android:initOrder="100" />
-117-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:30:13-36
-118
-119        <activity
-119-->[com.google.android.gms:play-services-base:18.0.1] /Users/dennis/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
-120            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-120-->[com.google.android.gms:play-services-base:18.0.1] /Users/dennis/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
-121            android:exported="false"
-121-->[com.google.android.gms:play-services-base:18.0.1] /Users/dennis/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
-122            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-122-->[com.google.android.gms:play-services-base:18.0.1] /Users/dennis/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
-123
-124        <receiver
-124-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:29:9-33:20
-125            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-125-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:30:13-85
-126            android:enabled="true"
-126-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:31:13-35
-127            android:exported="false" >
-127-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:32:13-37
-128        </receiver>
-129
-130        <service
-130-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:35:9-38:40
-131            android:name="com.google.android.gms.measurement.AppMeasurementService"
-131-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:36:13-84
-132            android:enabled="true"
-132-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:37:13-35
-133            android:exported="false" />
-133-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:38:13-37
-134        <service
-134-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:39:9-43:72
-135            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-135-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:40:13-87
-136            android:enabled="true"
-136-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:41:13-35
-137            android:exported="false"
-137-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:42:13-37
-138            android:permission="android.permission.BIND_JOB_SERVICE" />
-138-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:43:13-69
-139
-140        <provider
-140-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-141            android:name="androidx.startup.InitializationProvider"
-141-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
-142            android:authorities="com.example.socalbeach4life.androidx-startup"
-142-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
-143            android:exported="false" >
-143-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
-144            <meta-data
-144-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-145                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-145-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
-146                android:value="androidx.startup" />
-146-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
-147            <meta-data
-147-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/dennis/.gradle/caches/transforms-3/06f771c9eca05d7366e9d8c981c19bf6/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
-148                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-148-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/dennis/.gradle/caches/transforms-3/06f771c9eca05d7366e9d8c981c19bf6/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
-149                android:value="androidx.startup" />
-149-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/dennis/.gradle/caches/transforms-3/06f771c9eca05d7366e9d8c981c19bf6/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
-150        </provider>
-151    </application>
-152
-153</manifest>
+43        android:theme="@style/Theme.SoCalBeach4Life" >
+43-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:18:9-53
+44        <activity
+44-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:20:9-22:40
+45            android:name="com.example.socalbeach4life.AddReviewActivity"
+45-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:21:13-46
+46            android:exported="false" />
+46-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:22:13-37
+47        <activity
+47-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:23:9-25:40
+48            android:name="com.example.socalbeach4life.ViewReviewsActivity"
+48-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:24:13-48
+49            android:exported="false" />
+49-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:25:13-37
+50        <activity
+50-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:26:9-28:40
+51            android:name="com.example.socalbeach4life.ReviewMainActivity"
+51-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:27:13-47
+52            android:exported="false" />
+52-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:28:13-37
+53        <activity
+53-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:29:9-31:40
+54            android:name="com.example.socalbeach4life.ViewTrips"
+54-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:30:13-38
+55            android:exported="false" />
+55-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:31:13-37
+56        <activity
+56-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:32:9-34:40
+57            android:name="com.example.socalbeach4life.ViewRestaurant"
+57-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:33:13-43
+58            android:exported="false" />
+58-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:34:13-37
+59        <activity
+59-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:35:9-44:20
+60            android:name="com.example.socalbeach4life.StartActivity"
+60-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:36:13-42
+61            android:exported="true"
+61-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:37:13-36
+62            android:label="Login" >
+62-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:38:13-34
+63            <intent-filter>
+63-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:39:13-43:29
+64                <action android:name="android.intent.action.MAIN" />
+64-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:40:17-69
+64-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:40:25-66
+65
+66                <category android:name="android.intent.category.LAUNCHER" />
+66-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:42:17-77
+66-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:42:27-74
+67            </intent-filter>
+68        </activity>
+69        <!--
+70             TODO: Before you run your application, you need a Google Maps API key.
+71
+72             To get one, follow the directions here:
+73
+74                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+75
+76             Once you have your API key (it starts with "AIza"), define a new property in your
+77             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+78             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+79        -->
+80        <meta-data
+80-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:56:9-58:71
+81            android:name="com.google.android.geo.API_KEY"
+81-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:57:13-58
+82            android:value="AIzaSyAEWEupyyb2xLmiyBWyflHQiuJqDUoKTng" />
+82-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:58:13-68
+83        <meta-data
+83-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:59:9-61:69
+84            android:name="com.google.android.gms.version"
+84-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:60:13-58
+85            android:value="@integer/google_play_services_version" />
+85-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:61:13-66
+86
+87        <activity
+87-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:63:9-67:36
+88            android:name="com.example.socalbeach4life.MapsActivity"
+88-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:64:13-41
+89            android:exported="true"
+89-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:65:13-36
+90            android:label="@string/title_activity_maps" />
+90-->/Users/dennis/Documents/app-data/SoCalBeach4Life/app/src/main/AndroidManifest.xml:66:13-56
+91        <!-- Needs to be explicitly declared on P+ -->
+92        <uses-library
+92-->[com.google.android.gms:play-services-maps:17.0.1] /Users/dennis/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:39:9-41:40
+93            android:name="org.apache.http.legacy"
+93-->[com.google.android.gms:play-services-maps:17.0.1] /Users/dennis/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:40:13-50
+94            android:required="false" />
+94-->[com.google.android.gms:play-services-maps:17.0.1] /Users/dennis/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:41:13-37
+95
+96        <service
+96-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:16:9-22:19
+97            android:name="com.google.firebase.components.ComponentDiscoveryService"
+97-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:17:13-84
+98            android:directBootAware="true"
+98-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:34:13-43
+99            android:exported="false" >
+99-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:18:13-37
+100            <meta-data
+100-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:19:13-21:85
+101                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+101-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:20:17-111
+102                android:value="com.google.firebase.components.ComponentRegistrar" />
+102-->[com.google.firebase:firebase-firestore:24.4.0] /Users/dennis/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:21:17-82
+103            <meta-data
+103-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/dennis/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:31:13-33:85
+104                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+104-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/dennis/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:32:17-139
+105                android:value="com.google.firebase.components.ComponentRegistrar" />
+105-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/dennis/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:33:17-82
+106            <meta-data
+106-->[com.google.firebase:firebase-installations:17.1.0] /Users/dennis/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:17:13-19:85
+107                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+107-->[com.google.firebase:firebase-installations:17.1.0] /Users/dennis/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:18:17-127
+108                android:value="com.google.firebase.components.ComponentRegistrar" />
+108-->[com.google.firebase:firebase-installations:17.1.0] /Users/dennis/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:19:17-82
+109        </service>
+110
+111        <provider
+111-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:25:9-30:39
+112            android:name="com.google.firebase.provider.FirebaseInitProvider"
+112-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:26:13-77
+113            android:authorities="com.example.socalbeach4life.firebaseinitprovider"
+113-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:27:13-72
+114            android:directBootAware="true"
+114-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:28:13-43
+115            android:exported="false"
+115-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:29:13-37
+116            android:initOrder="100" />
+116-->[com.google.firebase:firebase-common:20.2.0] /Users/dennis/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:30:13-36
+117
+118        <activity
+118-->[com.google.android.gms:play-services-base:18.0.1] /Users/dennis/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+119            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+119-->[com.google.android.gms:play-services-base:18.0.1] /Users/dennis/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+120            android:exported="false"
+120-->[com.google.android.gms:play-services-base:18.0.1] /Users/dennis/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+121            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+121-->[com.google.android.gms:play-services-base:18.0.1] /Users/dennis/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+122
+123        <receiver
+123-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:29:9-33:20
+124            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+124-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:30:13-85
+125            android:enabled="true"
+125-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:31:13-35
+126            android:exported="false" >
+126-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:32:13-37
+127        </receiver>
+128
+129        <service
+129-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:35:9-38:40
+130            android:name="com.google.android.gms.measurement.AppMeasurementService"
+130-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:36:13-84
+131            android:enabled="true"
+131-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:37:13-35
+132            android:exported="false" />
+132-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:38:13-37
+133        <service
+133-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:39:9-43:72
+134            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+134-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:40:13-87
+135            android:enabled="true"
+135-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:41:13-35
+136            android:exported="false"
+136-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:42:13-37
+137            android:permission="android.permission.BIND_JOB_SERVICE" />
+137-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/dennis/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:43:13-69
+138
+139        <provider
+139-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+140            android:name="androidx.startup.InitializationProvider"
+140-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+141            android:authorities="com.example.socalbeach4life.androidx-startup"
+141-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+142            android:exported="false" >
+142-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+143            <meta-data
+143-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+144                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+144-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+145                android:value="androidx.startup" />
+145-->[androidx.emoji2:emoji2:1.2.0] /Users/dennis/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+146            <meta-data
+146-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/dennis/.gradle/caches/transforms-3/06f771c9eca05d7366e9d8c981c19bf6/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+147                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+147-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/dennis/.gradle/caches/transforms-3/06f771c9eca05d7366e9d8c981c19bf6/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+148                android:value="androidx.startup" />
+148-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/dennis/.gradle/caches/transforms-3/06f771c9eca05d7366e9d8c981c19bf6/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+149        </provider>
+150    </application>
+151
+152</manifest>
