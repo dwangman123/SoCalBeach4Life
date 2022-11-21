@@ -1,5 +1,6 @@
 package com.example.socalbeach4life;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -15,6 +16,7 @@ public class User {
         this.name = name;
         this.phoneNo= phoneNo;
         this.id = id;
+        trips = new ArrayList<>();
     }
 
     public String getEmail() {
@@ -34,4 +36,8 @@ public class User {
     }
 
     public List<String> getTrips(){ return trips;}
+
+    public void addTrip(String s){
+        trips.add(s);
+    }
 }

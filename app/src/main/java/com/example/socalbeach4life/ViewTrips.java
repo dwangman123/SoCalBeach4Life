@@ -22,66 +22,79 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class ViewTrips extends AppCompatActivity {
 
     private FirebaseFirestore db;
-    private User currUser;
+    public User currUser;
+    private boolean testing = false;
+    public String trip;
 
-    public ViewTrips(){
-        db = FirebaseFirestore.getInstance();
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        String id = intent.getStringExtra("id");
-        DocumentReference userDoc = this.db.collection("users").document(id);
-        userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()){
-                        currUser = document.toObject(User.class);
-                        Toast.makeText(ViewTrips.this, "User loaded.", Toast.LENGTH_SHORT).show();
-                        insertTrips();
+        if(intent.hasExtra("testing")){
+            db = null;
+            testing = true;
+            currUser = new User("test", "Test", "test", "t");
+            currUser.addTrip("Test trip");
+        } else {
+            db = FirebaseFirestore.getInstance();
+        }
+        if(!testing) {
+            String id = intent.getStringExtra("id");
+            DocumentReference userDoc = this.db.collection("users").document(id);
+            userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            currUser = document.toObject(User.class);
+                            Toast.makeText(ViewTrips.this, "User loaded.", Toast.LENGTH_SHORT).show();
+                            insertTrips();
+                        } else {
+                            Toast.makeText(ViewTrips.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
                         Toast.makeText(ViewTrips.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(ViewTrips.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
+            });
+        }
     }
 
     public void insertTrips(){
         setContentView(R.layout.activity_view_trips);
         GridLayout grid = (GridLayout) findViewById(R.id.trips);
-        for(String trip: currUser.getTrips()){
-            DocumentReference tripDoc = this.db.collection("trips").document(trip);
-            tripDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task){
-                    if(task.isSuccessful()){
-                        DocumentSnapshot document = task.getResult();
-                        if(document.exists()){
-                            TextView tv = new TextView(ViewTrips.this);
-                            String text = "Previous Trip:"
-                                    + "\nFrom: " + document.getString("source")
-                                    + "\nTo: " + document.getString("dest")
-                                    + "\nStart time: " + document.getString("start")
-                                    + "\nEnd time: " + document.getString("end");
-                            tv.setText(text);
-                            tv.setGravity(Gravity.CENTER);
-                            tv.setBackgroundColor(Color.WHITE);
-                            tv.setPadding(5, 5, 5, 5);
+        if(!testing) {
+            for (String trip : currUser.getTrips()) {
+                DocumentReference tripDoc = this.db.collection("trips").document(trip);
+                tripDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                TextView tv = new TextView(ViewTrips.this);
+                                String text = "Previous Trip:"
+                                        + "\nFrom: " + document.getString("source")
+                                        + "\nTo: " + document.getString("dest")
+                                        + "\nStart time: " + document.getString("start")
+                                        + "\nEnd time: " + document.getString("end");
+                                tv.setText(text);
+                                tv.setGravity(Gravity.CENTER);
+                                tv.setBackgroundColor(Color.WHITE);
+                                tv.setPadding(5, 5, 5, 5);
 
-                            GridLayout.LayoutParams title_layout = new GridLayout.LayoutParams();
-                            title_layout.setGravity(Gravity.CENTER_HORIZONTAL);
-                            grid.addView(tv, title_layout);
+                                GridLayout.LayoutParams title_layout = new GridLayout.LayoutParams();
+                                title_layout.setGravity(Gravity.CENTER_HORIZONTAL);
+                                grid.addView(tv, title_layout);
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
+        } else {
+            trip = currUser.getTrips().get(0);
         }
     }
 

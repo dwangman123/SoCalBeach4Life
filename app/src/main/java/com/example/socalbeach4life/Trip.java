@@ -16,6 +16,8 @@ public class Trip {
     private String dest;
     private User user;
     private FirebaseFirestore db;
+    public boolean testing = false;
+    public Map<String, String> tripData;
     public Trip(LocalDateTime start, LocalDateTime end, String source, String dest, User user){
         this.start = start;
         this.end = end;
@@ -27,15 +29,19 @@ public class Trip {
 
     public void upload(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss");
-        DocumentReference newTrip = db.collection("trips").document();
         Map<String, String> tripData = new HashMap<>();
         tripData.put("start", dtf.format(start));
         tripData.put("end", dtf.format(end));
         tripData.put("source", source);
         tripData.put("dest", dest);
-        newTrip.set(tripData);
-        String tripId = newTrip.getId();
-        DocumentReference trips = db.collection("users").document(user.getId());
-        trips.update("trips", FieldValue.arrayUnion(tripId));
+        if(!testing) {
+            DocumentReference newTrip = db.collection("trips").document();
+            newTrip.set(tripData);
+            String tripId = newTrip.getId();
+            DocumentReference trips = db.collection("users").document(user.getId());
+            trips.update("trips", FieldValue.arrayUnion(tripId));
+        } else {
+            this.tripData = tripData;
+        }
     }
 }
