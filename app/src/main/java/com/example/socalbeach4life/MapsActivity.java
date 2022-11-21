@@ -98,7 +98,7 @@ public class MapsActivity extends AppCompatActivity
 
     private GoogleMap map;
 
-    private final FirebaseFirestore db;
+    private FirebaseFirestore db;
     private ArrayList<Beach> allBeaches;
     private static ArrayList<Beach> staticAllBeaches;
     private User currUser;
@@ -123,45 +123,51 @@ public class MapsActivity extends AppCompatActivity
 
     private Location lastKnownLocation;
 
+    private boolean testing;
+
     public MapsActivity() {
-        this.db = FirebaseFirestore.getInstance();
         allBeaches = new ArrayList<>();
         staticAllBeaches = new ArrayList<Beach>();
         parkingLots = new ArrayList<>();
         allRestaurants = new ArrayList<>();
         currentRestaurants = new ArrayList<>();
-
+        testing = false;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
         Intent intent = getIntent();
-        String id = intent.getStringExtra("id");
-        DocumentReference userDoc = this.db.collection("users").document(id);
-        userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()){
-                        currUser = document.toObject(User.class);
-                        Toast.makeText(MapsActivity.this, "User loaded.", Toast.LENGTH_SHORT).show();
+        if(intent.hasExtra("testing")){
+            testing = true;
+            db = null;
+        } else {
+            db = FirebaseFirestore.getInstance();
+        }
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maps);
+        if(!testing) {
+            String id = intent.getStringExtra("id");
+            DocumentReference userDoc = this.db.collection("users").document(id);
+            userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            currUser = document.toObject(User.class);
+                            Toast.makeText(MapsActivity.this, "User loaded.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(MapsActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
                         Toast.makeText(MapsActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(MapsActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
-
-        setContentView(R.layout.activity_maps);
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+            });
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+        }
     }
 
     /**
@@ -473,13 +479,13 @@ public class MapsActivity extends AppCompatActivity
         }
     }
 
-    private String getDirectionsURL(double curLat, double curLng, double destLat, double destLng, String modeName) {
+    public String getDirectionsURL(double curLat, double curLng, double destLat, double destLng, String modeName) {
         String str_origin = "origin=" + curLat + "," + curLng;
         String str_dest = "destination=" + destLat + "," + destLng;
         String sensor = "sensor=false";
         String mode = "mode=" + modeName;
 
-        String parameters = str_origin + "&" + str_dest + "&" + sensor + "&" + mode + "&key=" + getString(R.string.google_maps_key);
+        String parameters = str_origin + "&" + str_dest + "&" + sensor + "&" + mode + "&key=" + (testing ? "" : getString(R.string.google_maps_key));
 
         String output = "json";
 
