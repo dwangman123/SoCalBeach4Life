@@ -143,7 +143,7 @@ public class MapsActivity extends AppCompatActivity
             testing = true;
             db = null;
             allRestaurants.add(new Restaurant(0, 0, "Test", 0, 0));
-            allBeaches.add(new Beach("Test", "None", 0, 0));
+            allBeaches.add(new Beach("Test", "None", 20, 20));
         } else {
             db = FirebaseFirestore.getInstance();
         }
@@ -205,12 +205,16 @@ public class MapsActivity extends AppCompatActivity
 
             // Get the current location of the device and set the position of the map.
             getDeviceLocation();
+        } else {
+            pinBeaches();
         }
     }
 
     public void goToTrips(View view){
         Intent intent = new Intent(this, ViewTrips.class);
-        intent.putExtra("id", currUser.getId());
+        if(!testing) {
+            intent.putExtra("id", currUser.getId());
+        }
         this.startActivity(intent);
     }
 
@@ -353,7 +357,7 @@ public class MapsActivity extends AppCompatActivity
     public void pinBeaches() {
         for (Beach b : allBeaches) {
             LatLng coords = new LatLng(b.getLat(), b.getLong());
-            if(!testing) {
+            if(map != null) {
                 map.addMarker(new MarkerOptions().position(coords).title(b.getName()).snippet(b.getHours()));
             }
             beachMarkers.add(new MarkerOptions().position(coords).title(b.getName()).snippet(b.getHours()));

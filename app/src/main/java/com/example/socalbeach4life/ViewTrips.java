@@ -19,6 +19,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.w3c.dom.Text;
+
 public class ViewTrips extends AppCompatActivity {
 
     private FirebaseFirestore db;
@@ -36,10 +38,11 @@ public class ViewTrips extends AppCompatActivity {
             testing = true;
             currUser = new User("test", "Test", "test", "t");
             currUser.addTrip("Test trip");
+            insertTrips();
         } else {
             db = FirebaseFirestore.getInstance();
         }
-        if(!testing) {
+        if(intent.hasExtra("id")) {
             String id = intent.getStringExtra("id");
             DocumentReference userDoc = this.db.collection("users").document(id);
             userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -95,6 +98,9 @@ public class ViewTrips extends AppCompatActivity {
             }
         } else {
             trip = currUser.getTrips().get(0);
+            TextView tv = new TextView(ViewTrips.this);
+            tv.setText(trip);
+            grid.addView(tv);
         }
     }
 

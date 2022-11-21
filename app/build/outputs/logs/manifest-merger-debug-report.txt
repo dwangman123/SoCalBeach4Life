@@ -13,6 +13,7 @@ MERGED from [com.google.firebase:firebase-analytics:21.2.0] /Users/ronakpai/.gra
 MERGED from [com.google.android.gms:play-services-maps:17.0.1] /Users/ronakpai/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:17:1-44:12
 MERGED from [com.google.android.gms:play-services-location:21.0.0] /Users/ronakpai/.gradle/caches/transforms-3/545685f597ebb608dc3d284fc6e685fa/transformed/play-services-location-21.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/ronakpai/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:2:1-25:12
+MERGED from [androidx.test.uiautomator:uiautomator:2.2.0] /Users/ronakpai/.gradle/caches/transforms-3/c079811d13d9439afab4e3f332cd1b3f/transformed/uiautomator-2.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/ronakpai/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:17:1-37:12
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.0] /Users/ronakpai/.gradle/caches/transforms-3/88ef8159e3d9d8f9e75e73887491c440/transformed/firebase-appcheck-interop-16.1.0/AndroidManifest.xml:15:1-25:12
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] /Users/ronakpai/.gradle/caches/transforms-3/540fad0a50f1ef9ef8b4101895f98d1c/transformed/firebase-auth-interop-19.0.2/AndroidManifest.xml:2:1-10:12
@@ -129,6 +130,8 @@ MERGED from [com.google.android.gms:play-services-location:21.0.0] /Users/ronakp
 MERGED from [com.google.android.gms:play-services-location:21.0.0] /Users/ronakpai/.gradle/caches/transforms-3/545685f597ebb608dc3d284fc6e685fa/transformed/play-services-location-21.0.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/ronakpai/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:15:5-23:19
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/ronakpai/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:15:5-23:19
+MERGED from [androidx.test.uiautomator:uiautomator:2.2.0] /Users/ronakpai/.gradle/caches/transforms-3/c079811d13d9439afab4e3f332cd1b3f/transformed/uiautomator-2.2.0/AndroidManifest.xml:22:5-20
+MERGED from [androidx.test.uiautomator:uiautomator:2.2.0] /Users/ronakpai/.gradle/caches/transforms-3/c079811d13d9439afab4e3f332cd1b3f/transformed/uiautomator-2.2.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/ronakpai/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:27:5-35:19
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/ronakpai/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:27:5-35:19
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.0] /Users/ronakpai/.gradle/caches/transforms-3/88ef8159e3d9d8f9e75e73887491c440/transformed/firebase-appcheck-interop-16.1.0/AndroidManifest.xml:23:5-20
@@ -289,6 +292,8 @@ MERGED from [com.google.android.gms:play-services-location:21.0.0] /Users/ronakp
 MERGED from [com.google.android.gms:play-services-location:21.0.0] /Users/ronakpai/.gradle/caches/transforms-3/545685f597ebb608dc3d284fc6e685fa/transformed/play-services-location-21.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/ronakpai/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/ronakpai/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:6:5-8:41
+MERGED from [androidx.test.uiautomator:uiautomator:2.2.0] /Users/ronakpai/.gradle/caches/transforms-3/c079811d13d9439afab4e3f332cd1b3f/transformed/uiautomator-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.test.uiautomator:uiautomator:2.2.0] /Users/ronakpai/.gradle/caches/transforms-3/c079811d13d9439afab4e3f332cd1b3f/transformed/uiautomator-2.2.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/ronakpai/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/ronakpai/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.0] /Users/ronakpai/.gradle/caches/transforms-3/88ef8159e3d9d8f9e75e73887491c440/transformed/firebase-appcheck-interop-16.1.0/AndroidManifest.xml:18:5-20:41
