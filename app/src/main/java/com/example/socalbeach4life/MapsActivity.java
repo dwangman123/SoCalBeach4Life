@@ -96,7 +96,8 @@ public class MapsActivity extends AppCompatActivity
         }
     }
 
-    private GoogleMap map;
+    public GoogleMap map;
+    public ArrayList<MarkerOptions> beachMarkers;
 
     private FirebaseFirestore db;
     private ArrayList<Beach> allBeaches;
@@ -108,7 +109,7 @@ public class MapsActivity extends AppCompatActivity
     private final LatLng defaultLocation = new LatLng(34.0083, -118.4988);
     private static final int DEFAULT_ZOOM = 10;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
-    private boolean locationPermissionGranted;
+    public boolean locationPermissionGranted;
 
     private Polyline currentRoute;
     private String source;
@@ -118,7 +119,7 @@ public class MapsActivity extends AppCompatActivity
 
     private int currentRadius = 1000;
 
-    private ArrayList<Marker> currentRestaurants;
+    public ArrayList<Marker> currentRestaurants;
     private Circle currentCircle;
 
     private Location lastKnownLocation;
@@ -131,6 +132,7 @@ public class MapsActivity extends AppCompatActivity
         parkingLots = new ArrayList<>();
         allRestaurants = new ArrayList<>();
         currentRestaurants = new ArrayList<>();
+        beachMarkers = new ArrayList<>();
         testing = false;
     }
 
@@ -140,11 +142,16 @@ public class MapsActivity extends AppCompatActivity
         if(intent.hasExtra("testing")){
             testing = true;
             db = null;
+            allRestaurants.add(new Restaurant(0, 0, "Test", 0, 0));
+            allBeaches.add(new Beach("Test", "None", 0, 0));
         } else {
             db = FirebaseFirestore.getInstance();
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
         if(!testing) {
             String id = intent.getStringExtra("id");
             DocumentReference userDoc = this.db.collection("users").document(id);
@@ -164,9 +171,6 @@ public class MapsActivity extends AppCompatActivity
                     }
                 }
             });
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.map);
-            mapFragment.getMapAsync(this);
         }
     }
 
@@ -181,25 +185,27 @@ public class MapsActivity extends AppCompatActivity
         map.setInfoWindowAdapter(new BeachWindow());
         map.setOnInfoWindowClickListener(this);
         map.setOnMarkerClickListener(this);
+        if(!testing) {
 
-        // Prompt the user for permission.
-        getLocationPermission();
+            // Prompt the user for permission.
+            getLocationPermission();
 
-        while(!locationPermissionGranted){
-            try {
-                sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            while(!locationPermissionGranted){
+                try {
+                    sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
+
+            fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+            // Turn on the My Location layer and the related control on the map.
+            updateLocationUI();
+
+            // Get the current location of the device and set the position of the map.
+            getDeviceLocation();
         }
-
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-
-        // Turn on the My Location layer and the related control on the map.
-        updateLocationUI();
-
-        // Get the current location of the device and set the position of the map.
-        getDeviceLocation();
     }
 
     public void goToTrips(View view){
@@ -323,7 +329,7 @@ public class MapsActivity extends AppCompatActivity
     /**
      * Updates the map's UI settings based on whether the user has granted location permission.
      */
-    private void updateLocationUI() {
+    public void updateLocationUI() {
         if (map == null) {
             return;
         }
@@ -335,7 +341,9 @@ public class MapsActivity extends AppCompatActivity
                 map.setMyLocationEnabled(false);
                 map.getUiSettings().setMyLocationButtonEnabled(false);
                 lastKnownLocation = null;
-                getLocationPermission();
+                if(!testing) {
+                    getLocationPermission();
+                }
             }
         } catch (SecurityException e)  {
             System.out.println(e.getMessage());
@@ -345,7 +353,10 @@ public class MapsActivity extends AppCompatActivity
     public void pinBeaches() {
         for (Beach b : allBeaches) {
             LatLng coords = new LatLng(b.getLat(), b.getLong());
-            map.addMarker(new MarkerOptions().position(coords).title(b.getName()).snippet(b.getHours()));
+            if(!testing) {
+                map.addMarker(new MarkerOptions().position(coords).title(b.getName()).snippet(b.getHours()));
+            }
+            beachMarkers.add(new MarkerOptions().position(coords).title(b.getName()).snippet(b.getHours()));
         }
     }
 
@@ -392,15 +403,18 @@ public class MapsActivity extends AppCompatActivity
             circleOptions.center(ll);
             circleOptions.radius(currentRadius);
             circleOptions.fillColor(0x30ff0000);
-            currentCircle = map.addCircle(circleOptions);
+
+            if(!testing) {
+                currentCircle = map.addCircle(circleOptions);
 
 
-            PlacesSearchResponse request = new NearbySearch().run(lat, lng, currentRadius, "", PlaceType.RESTAURANT, getString(R.string.google_maps_key));
-            for (int i = 0; i < request.results.length && allRestaurants.size() < 6; i++) {
-                Restaurant r = new Restaurant(request.results[i].geometry.location.lat, request.results[i].geometry.location.lng, request.results[i].name, lat, lng);
-                allRestaurants.add(r);
+                PlacesSearchResponse request = new NearbySearch().run(lat, lng, currentRadius, "", PlaceType.RESTAURANT, getString(R.string.google_maps_key));
+                for (int i = 0; i < request.results.length && allRestaurants.size() < 6; i++) {
+                    Restaurant r = new Restaurant(request.results[i].geometry.location.lat, request.results[i].geometry.location.lng, request.results[i].name, lat, lng);
+                    allRestaurants.add(r);
+                }
+                pinRestaurants();
             }
-            pinRestaurants();
         } else if(marker.getSnippet().equals("Restaurant")){
             if(currentRoute != null){
                 currentRoute.remove();
@@ -414,10 +428,12 @@ public class MapsActivity extends AppCompatActivity
                     res = r;
                 }
             }
-            String url = getDirectionsURL(res.getBeachLat(), res.getBeachlng(), res.getLat(), res.getLong(), "walking");
-            FetchUrl FetchUrl = new FetchUrl();
-            FetchUrl.execute(url);
-            tripStart = LocalDateTime.now();
+            if(!testing) {
+                String url = getDirectionsURL(res.getBeachLat(), res.getBeachlng(), res.getLat(), res.getLong(), "walking");
+                FetchUrl FetchUrl = new FetchUrl();
+                FetchUrl.execute(url);
+                tripStart = LocalDateTime.now();
+            }
         }
         return false;
     }
