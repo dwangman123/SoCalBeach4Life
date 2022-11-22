@@ -98,6 +98,7 @@ public class MapsActivity extends AppCompatActivity
 
     public GoogleMap map;
     public ArrayList<MarkerOptions> beachMarkers;
+    public ArrayList<Marker> restaurantMarkers;
 
     private FirebaseFirestore db;
     private ArrayList<Beach> allBeaches;
@@ -118,6 +119,9 @@ public class MapsActivity extends AppCompatActivity
     private Marker tempMarker;
 
     private int currentRadius = 1000;
+    public int getRadius(){
+        return currentRadius;
+    }
 
     public ArrayList<Marker> currentRestaurants;
     private Circle currentCircle;
@@ -142,7 +146,7 @@ public class MapsActivity extends AppCompatActivity
         if(intent.hasExtra("testing")){
             testing = true;
             db = null;
-            allRestaurants.add(new Restaurant(0, 0, "Test", 0, 0));
+            allRestaurants.add(new Restaurant(20, 20, "Test2", 0, 0));
             allBeaches.add(new Beach("Test", "None", 20, 20));
         } else {
             db = FirebaseFirestore.getInstance();
@@ -380,6 +384,7 @@ public class MapsActivity extends AppCompatActivity
             LatLng coords = new LatLng(r.getLat(), r.getLong());
             Marker marker = map.addMarker(new MarkerOptions().position(coords).title(r.getName()).snippet("Restaurant").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
             currentRestaurants.add(marker);
+            restaurantMarkers.add(marker);
         }
     }
 
