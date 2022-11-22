@@ -1,6 +1,8 @@
 package com.example.socalbeach4life;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.robolectric.annotation.LooperMode.Mode.PAUSED;
 
 import org.junit.Before;
@@ -26,5 +28,13 @@ public class LoginUnitTests {
             assertEquals(testAuth.testUser.get("password"), "testPass");
             assertEquals(testAuth.testUserObj.getName(), "testName");
             assertEquals(testAuth.testUserObj.getId(), "testId");
+    }
+
+    @Test
+    public void emailValidator() {
+        assertTrue(StartActivity.isEmailValid("testemail@gmail.com"));
+        assertFalse(StartActivity.isEmailValid("testemail@gmail"));
+        assertFalse(StartActivity.isEmailValid("testemail@gmailcom"));
+        assertFalse(StartActivity.isEmailValid("testemail"));
     }
 }
