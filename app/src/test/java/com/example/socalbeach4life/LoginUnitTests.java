@@ -1,16 +1,17 @@
 package com.example.socalbeach4life;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.Robolectric;
-import org.robolectric.RobolectricTestRunner;
-import org.robolectric.android.controller.ActivityController;
-import org.robolectric.annotation.LooperMode;
-import static org.junit.Assert.*;
 import static org.robolectric.annotation.LooperMode.Mode.PAUSED;
 
-@RunWith(RobolectricTestRunner.class)
+import android.content.Context;
+
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.robolectric.annotation.LooperMode;
+
 @RunWith(MockitoJUnitRunner.class)
 @LooperMode(PAUSED)
 public class LoginUnitTests {
+    @Mock
+    Context mockContext;
 }

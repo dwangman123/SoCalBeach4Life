@@ -1,1 +1,4 @@
 **/*/res/values/secrets.xml
+*.lock
+*.xml
+local.properties
