@@ -32,29 +32,40 @@ public class ReviewMainActivity extends AppCompatActivity {
     private ArrayList<Beach> allBeaches;
     private static String id;
     private Map<String, ReviewWrapper> ratingMap = new HashMap<String, ReviewWrapper>();
+    private boolean testing = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_main);
-        this.db = FirebaseFirestore.getInstance();
-        this.allBeaches = MapsActivity.getAllBeaches();
         Intent intent = getIntent();
-        this.id = intent.getStringExtra("id");
-        this.db.collection("reviews").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        ratingMap.put(document.getId(), document.toObject(ReviewWrapper.class));
+        if(intent.hasExtra("testing")){
+            this.testing=true;
+            this.db = null;
+            this.allBeaches = new ArrayList<Beach>();
+            this.allBeaches.add(new Beach("Test", "None", 20, 20));
+            fillScreen();
+        } else {
+            db = FirebaseFirestore.getInstance();
+            this.allBeaches = MapsActivity.getAllBeaches();
+            this.id = intent.getStringExtra("id");
+            this.db.collection("reviews").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            ratingMap.put(document.getId(), document.toObject(ReviewWrapper.class));
+                        }
+                        fillScreen();
                     }
-                    fillScreen();
                 }
-            }
-        });
+            });
+        }
     }
     public void backToMap(View view){
         Intent intent = new Intent(this, MapsActivity.class);
-        intent.putExtra("id", this.id);
+        if (this.id != null) {
+            intent.putExtra("id", this.id);
+        }
         startActivity(intent);
     }
     private void fillScreen() {

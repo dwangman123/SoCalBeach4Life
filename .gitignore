@@ -1,1 +1,7 @@
 **/*/res/values/secrets.xml
+*.lock
+*.xml
+local.properties
+*.bin
+*.class
+*.txt

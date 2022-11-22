@@ -19,10 +19,17 @@ import java.util.UUID;
 public class Authorization {
     private Context StartActivity;
     private FirebaseFirestore db;
+    private boolean testing = false;
+    Map<String, String> testUser;
+    public User testUserObj;
 
     public Authorization(Context context) {
         StartActivity = context;
         this.db = FirebaseFirestore.getInstance();
+    }
+
+    public Authorization(boolean testing) {
+        this.testing = testing;
     }
 
     public void createUser(String name, String email, String phone, String password) {
@@ -30,35 +37,45 @@ public class Authorization {
         authUser.put("password", password);
         String userUuid = UUID.randomUUID().toString();
         authUser.put("id", userUuid);
-        // persist auth obj to authentication collection - auth obj keyed by username(email)
-        this.db.collection("auth").document(email).set(authUser).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    persistToUsersAndSwitch(name, email, phone, userUuid);
-                } else {
-                    Toast.makeText(StartActivity, "Registration failed.", Toast.LENGTH_SHORT).show();
+
+        if(!testing) {
+            // persist auth obj to authentication collection - auth obj keyed by username(email)
+            this.db.collection("auth").document(email).set(authUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        persistToUsersAndSwitch(name, email, phone, userUuid);
+                    } else {
+                        Toast.makeText(StartActivity, "Registration failed.", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            this.testUser = authUser;
+            persistToUsersAndSwitch(name, email, phone, "testId");
+        }
     }
 
     private void persistToUsersAndSwitch(String name, String email, String phone, String id){
         // persist user obj to user collection
         User user = new User(email, name, phone, id);
-        // user object keyed by uuid
-        this.db.collection("users").document(id).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Intent intent = new Intent(StartActivity, MapsActivity.class);
-                    intent.putExtra("id", id);
-                    StartActivity.startActivity(intent);
-                } else {
-                    Toast.makeText(StartActivity, "User addition failed.", Toast.LENGTH_SHORT).show();
+        if (!testing) {
+            // user object keyed by uuid
+            this.db.collection("users").document(id).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Intent intent = new Intent(StartActivity, MapsActivity.class);
+                        intent.putExtra("id", id);
+                        StartActivity.startActivity(intent);
+                    } else {
+                        Toast.makeText(StartActivity, "User addition failed.", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        } else {
+              testUserObj = user;
+        }
     }
 
     public void login(String email, String password) {

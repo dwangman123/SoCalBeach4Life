@@ -32,40 +32,50 @@ public class AddReviewActivity extends AppCompatActivity {
     private String userName ="";
     private Review review;
     private FirebaseFirestore db;
+    private boolean testing = false;
+    public Review testReview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        this.db = FirebaseFirestore.getInstance();
         Intent intent = getIntent();
         this.id = intent.getStringExtra("id");
         this.name = intent.getStringExtra("beachName");
-        DocumentReference userDoc = this.db.collection("users").document(id);
-        userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()){
-                        User currUser = document.toObject(User.class);
-                        userName = currUser.getName();
+        if (intent.getBooleanExtra("testing", false)) {
+            this.testing = true;
+        }
 
-                        Toast.makeText(AddReviewActivity.this, "User loaded.", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(AddReviewActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(AddReviewActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
-                }
-                setContentView(R.layout.activity_add_review);
-                TextView nameView = (TextView) findViewById(R.id.beachNameView);
-                nameView.setText(name);
-                review.setUserName(userName);
-            }
-        });
 
         this.review = new Review();
         this.review.setId(this.id);
+        if(!testing) {
+            this.db = FirebaseFirestore.getInstance();
+            DocumentReference userDoc = this.db.collection("users").document(id);
+            userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()){
+                            User currUser = document.toObject(User.class);
+                            userName = currUser.getName();
+
+                            Toast.makeText(AddReviewActivity.this, "User loaded.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(AddReviewActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(AddReviewActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
+                    }
+                    setContentView(R.layout.activity_add_review);
+                    TextView nameView = (TextView) findViewById(R.id.beachNameView);
+                    nameView.setText(name);
+                    review.setUserName(userName);
+                }
+            });
+        } else {
+            this.review.setUserName("testUserName");
+        }
+
     }
 
     public void backToReviewView(View view) {
@@ -85,39 +95,43 @@ public class AddReviewActivity extends AppCompatActivity {
         EditText ratingText = (EditText) findViewById(R.id.ratingEditText);
         EditText descriptionText = (EditText) findViewById(R.id.reviewDescription);
         CheckBox anonCheck = (CheckBox) findViewById(R.id.anonCheck);
-        float rating = Float.parseFloat(ratingText.getText().toString());
-        String desc = descriptionText.getText().toString();
-        boolean anon = anonCheck.isChecked();
+        float rating = testing ? Float.parseFloat("5") : Float.parseFloat(ratingText.getText().toString());
+        String desc = testing ? "testDescription" : descriptionText.getText().toString();
+        boolean anon = testing ? false : anonCheck.isChecked();
 
         this.review.setRating(rating);
         this.review.setDescription(desc);
         this.review.setAnonymous(anon);
         this.review.setReviewId(UUID.randomUUID().toString());
 
-        DocumentReference reviewDoc = this.db.collection("reviews").document(this.name);
-        reviewDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                DocumentSnapshot document = task.getResult();
-                ReviewWrapper wrapper;
-                if (task.isSuccessful()) {
-                    if (document.exists()) {
-                        wrapper = document.toObject(ReviewWrapper.class);
+        if (!testing) {
+            DocumentReference reviewDoc = this.db.collection("reviews").document(this.name);
+            reviewDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    DocumentSnapshot document = task.getResult();
+                    ReviewWrapper wrapper;
+                    if (task.isSuccessful()) {
+                        if (document.exists()) {
+                            wrapper = document.toObject(ReviewWrapper.class);
+                        } else {
+                            wrapper = new ReviewWrapper(name);
+                        }
                     } else {
                         wrapper = new ReviewWrapper(name);
                     }
-                } else {
-                    wrapper = new ReviewWrapper(name);
+                    wrapper.addToReviews(review);
+                    db.collection("reviews").document(name).set(wrapper).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            backToReviewView();
+                        }
+                    });
                 }
-                wrapper.addToReviews(review);
-                db.collection("reviews").document(name).set(wrapper).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        backToReviewView();
-                    }
-                });
-            }
-        });
+            });
+        } else {
+            this.testReview = this.review;
+        }
     }
 
 }
