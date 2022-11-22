@@ -31,7 +31,7 @@ public class LoginUnitTests {
     }
 
     @Test
-    public void emailValidator() {
+    public void testEmailValidator() {
         assertTrue(StartActivity.isEmailValid("testemail@gmail.com"));
         assertFalse(StartActivity.isEmailValid("testemail@gmail"));
         assertFalse(StartActivity.isEmailValid("testemail@gmailcom"));

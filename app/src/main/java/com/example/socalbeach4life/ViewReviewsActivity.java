@@ -26,32 +26,41 @@ public class ViewReviewsActivity extends AppCompatActivity {
     private String id;
     private String name;
     private FirebaseFirestore db;
+    private boolean testing = false;
+    public int testReviewCount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_reviews);
-        this.db = FirebaseFirestore.getInstance();
+
         Intent intent = getIntent();
         this.id = intent.getStringExtra("id");
         this.name = intent.getStringExtra("beachName");
 
-        TextView nameView = (TextView) findViewById(R.id.beachNameView);
-        nameView.setText(name);
+        this.testing = intent.getBooleanExtra("testing", false);
+        if (!testing) {
+            this.db = FirebaseFirestore.getInstance();
+            TextView nameView = (TextView) findViewById(R.id.beachNameView);
+            nameView.setText(name);
 
-        DocumentReference reviewDoc = this.db.collection("reviews").document(this.name);
-        reviewDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                DocumentSnapshot document = task.getResult();
-                ReviewWrapper wrapper;
-                if (task.isSuccessful()) {
-                    if (document.exists()) {
-                        wrapper = document.toObject(ReviewWrapper.class);
-                        fillScreen(wrapper);
+            DocumentReference reviewDoc = this.db.collection("reviews").document(this.name);
+            reviewDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    DocumentSnapshot document = task.getResult();
+                    ReviewWrapper wrapper;
+                    if (task.isSuccessful()) {
+                        if (document.exists()) {
+                            wrapper = document.toObject(ReviewWrapper.class);
+                            fillScreen(wrapper);
+                        }
                     }
                 }
-            }
-        });
+            });
+        } else {
+            testReviewCount = 0;
+        }
+
     }
 
     private void fillScreen(ReviewWrapper wrapper) {
@@ -130,12 +139,16 @@ public class ViewReviewsActivity extends AppCompatActivity {
         reviews.remove(review);
 
         tempWrapper.setReviewArrayList(reviews);
-        this.db.collection("reviews").document(name).set(tempWrapper).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                refresh();
-            }
-        });
+        if (!testing) {
+            this.db.collection("reviews").document(name).set(tempWrapper).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    refresh();
+                }
+            });
+        } else {
+            this.testReviewCount = tempWrapper.getReviewCount();
+        }
     }
 
     private void refresh() {
