@@ -152,8 +152,8 @@ public class MapsActivity extends AppCompatActivity
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        if(!testing) {
-            String id = intent.getStringExtra("id");
+        String id = intent.getStringExtra("id");
+        if(!testing && id != null) {
             DocumentReference userDoc = this.db.collection("users").document(id);
             userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
@@ -220,13 +220,17 @@ public class MapsActivity extends AppCompatActivity
 
     public void goToReviews(View view) {
         Intent intent = new Intent(this, ReviewMainActivity.class);
-        intent.putExtra("id", currUser.getId());
+        if(!testing) {
+            intent.putExtra("id", currUser.getId());
+        }
         this.startActivity(intent);
     }
 
     public void goUserPage(View view) {
         Intent intent = new Intent(this, LogoutActivity.class);
-        intent.putExtra("id", currUser.getId());
+        if(!testing) {
+            intent.putExtra("id", currUser.getId());
+        }
         this.startActivity(intent);
     }
 

@@ -27,29 +27,31 @@ public class LogoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_logout);
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");
-        DocumentReference userDoc = this.db.collection("users").document(id);
-        userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()){
-                        currUser = document.toObject(User.class);
-                        Toast.makeText(LogoutActivity.this, "User loaded.", Toast.LENGTH_SHORT).show();
-                        TextView nameView = (TextView) findViewById(R.id.nameView);
-                        TextView emailView = (TextView) findViewById(R.id.emailView);
-                        TextView phoneView = (TextView) findViewById(R.id.phoneView);
-                        nameView.setText(currUser.getName());
-                        emailView.setText(currUser.getEmail());
-                        phoneView.setText(currUser.getPhoneNo());
+        if (id != null) {
+            DocumentReference userDoc = this.db.collection("users").document(id);
+            userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()){
+                            currUser = document.toObject(User.class);
+                            Toast.makeText(LogoutActivity.this, "User loaded.", Toast.LENGTH_SHORT).show();
+                            TextView nameView = (TextView) findViewById(R.id.nameView);
+                            TextView emailView = (TextView) findViewById(R.id.emailView);
+                            TextView phoneView = (TextView) findViewById(R.id.phoneView);
+                            nameView.setText(currUser.getName());
+                            emailView.setText(currUser.getEmail());
+                            phoneView.setText(currUser.getPhoneNo());
+                        } else {
+                            Toast.makeText(LogoutActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
                         Toast.makeText(LogoutActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(LogoutActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
+            });
+        }
 
 
     }

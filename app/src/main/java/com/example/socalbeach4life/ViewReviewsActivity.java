@@ -38,7 +38,7 @@ public class ViewReviewsActivity extends AppCompatActivity {
         this.name = intent.getStringExtra("beachName");
 
         this.testing = intent.getBooleanExtra("testing", false);
-        if (!testing) {
+        if (!testing && id != null) {
             this.db = FirebaseFirestore.getInstance();
             TextView nameView = (TextView) findViewById(R.id.beachNameView);
             nameView.setText(name);

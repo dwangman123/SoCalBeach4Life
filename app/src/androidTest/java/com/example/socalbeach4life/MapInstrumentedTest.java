@@ -83,4 +83,16 @@ public class MapInstrumentedTest {
         onView(withText("Trips")).perform(click());
         intended(hasComponent(ViewTrips.class.getName()));
     }
+
+    @Test
+    public void testGoToReviews(){
+        onView(withText("Reviews")).perform(click());
+        intended(hasComponent(ReviewMainActivity.class.getName()));
+    }
+
+    @Test
+    public void testGoToUserPage(){
+        onView(withText("User page")).perform(click());
+        intended(hasComponent(LogoutActivity.class.getName()));
+    }
 }
