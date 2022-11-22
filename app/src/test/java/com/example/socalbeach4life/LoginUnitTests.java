@@ -1,17 +1,30 @@
 package com.example.socalbeach4life;
 
+import static org.junit.Assert.assertEquals;
 import static org.robolectric.annotation.LooperMode.Mode.PAUSED;
 
-import android.content.Context;
-
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.MockitoAnnotations;
+import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.LooperMode;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(RobolectricTestRunner.class)
 @LooperMode(PAUSED)
 public class LoginUnitTests {
-    @Mock
-    Context mockContext;
+    @Before
+    public void initMocks() {
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testCreateUser() {
+            Authorization testAuth = new Authorization(true);
+
+            testAuth.createUser("testName", "testEmail@email.com", "testPhone", "testPass");
+            assertEquals(testAuth.testUser.get("password"), "testPass");
+            assertEquals(testAuth.testUserObj.getName(), "testName");
+            assertEquals(testAuth.testUserObj.getId(), "testId");
+    }
 }
