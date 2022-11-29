@@ -28,4 +28,8 @@ public class Beach {
     public String getName(){
         return name;
     }
+
+    public void setHours(String hours) {
+        this.hours = hours;
+    }
 }

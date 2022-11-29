@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -104,6 +105,7 @@ public class MapsActivity extends AppCompatActivity
     private ArrayList<Beach> allBeaches;
     private static ArrayList<Beach> staticAllBeaches;
     private User currUser;
+    private int hoursFound = 0;
 
     private FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -137,6 +139,7 @@ public class MapsActivity extends AppCompatActivity
         allRestaurants = new ArrayList<>();
         currentRestaurants = new ArrayList<>();
         beachMarkers = new ArrayList<>();
+        restaurantMarkers = new ArrayList<>();
         testing = false;
     }
 
@@ -172,6 +175,17 @@ public class MapsActivity extends AppCompatActivity
                         }
                     } else {
                         Toast.makeText(MapsActivity.this, "Error getting user info.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            final Handler handler = new Handler();
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if(hoursFound == 5) {
+                        pinBeaches();
+                    } else {
+                        handler.postDelayed(this, 1000);
                     }
                 }
             });
@@ -281,14 +295,14 @@ public class MapsActivity extends AppCompatActivity
                                 for(int i = 0; i<request.results.length && allBeaches.size() < 5; i++){
                                     if(request.results[i].name.length() > 5 && request.results[i].name.substring(request.results[i].name.length() - 5).toLowerCase().equals("beach")) {
                                         Beach b = new Beach(request.results[i].name,
-                                                            request.results[i].openingHours != null && request.results[i].openingHours.weekdayText != null ? request.results[i].openingHours.weekdayText[0] : "No hours listed",
+                                                            "",
                                                             request.results[i].geometry.location.lat,
                                                             request.results[i].geometry.location.lng);
                                         allBeaches.add(b);
                                     }
                                 }
                                 staticAllBeaches = allBeaches;
-                                pinBeaches();
+                                getBeachHours();
                             }
                         } else {
                             map.moveCamera(CameraUpdateFactory
@@ -359,6 +373,29 @@ public class MapsActivity extends AppCompatActivity
             }
         } catch (SecurityException e)  {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public void getBeachHours(){
+        for(int i = 0; i<allBeaches.size(); i++){
+            Beach b = allBeaches.get(i);
+            DocumentReference userDoc = this.db.collection("beaches").document(b.getName());
+            userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            b.setHours(document.getString("hours"));
+                        } else {
+                            b.setHours("No hours found");
+                        }
+                    } else {
+                        Toast.makeText(MapsActivity.this, "Error getting info.", Toast.LENGTH_SHORT).show();
+                    }
+                    hoursFound++;
+                }
+            });
         }
     }
 
