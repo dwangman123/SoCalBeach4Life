@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -34,6 +35,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
+import java.util.Random;
+import java.util.ArrayList;
+
 
 public class ViewRestaurant extends AppCompatActivity {
 
@@ -46,12 +50,21 @@ public class ViewRestaurant extends AppCompatActivity {
 
     public Restaurant testRestaurant;
 
+    public ArrayList<String> menu;
+    public ArrayList<Integer> items;
+    public String[] startHour = new String[1];
+    public String[] endHour = new String[1];
+
+    private final String[] menuItems = {"Vodka Pasta", "Ribeye Steak", "Pepperoni Pizza", "Mashed Potatoes", "Mac & Cheese", "Fried Chicken", "Fried Rice", "Chicken Pot Pie", "Tater Tots", "Fish Taco", "Steak Burrito", "Cheese Quesadilla", "Cheeseburger", "Hamburger","Caesar Salad","Apple Pie","Grilled Cheese", "Hot Dog", "French Fries", "Chicken Tenders", "Vanilla Milkshake"};
+
     //public ViewRestaurant() throws IOException {db = FirebaseFirestore.getInstance();}
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         client =  new OkHttpClient();
         Intent intent = getIntent();
+        menu = new ArrayList<String>();
+        items = new ArrayList<Integer>();
         if(intent.hasExtra("testing")){
             db = null;
             testing = true;
@@ -93,46 +106,40 @@ public class ViewRestaurant extends AppCompatActivity {
             String url = "https://api.yelp.com/v3/businesses/search?latitude=" + lat + "&longitude=" + lng+"&term=" + name;
             String key = "-ny-9Blags4pZDTuOyMjLI9_GRyEmR1O9i3lzCq3iMv54Jce-QPm0ezJE2wgFPOwSh0WTUkuo9ufaF-4qTHkxiVgzWSgfE8_2r6-3_qXmA8CQHrlcIY_MpwzX8x6XHYx";
 
-            String[] menu = {"No menu available!"};
-
             String[] id = {""};
 
-            Request request = new Request.Builder()
-                    .url(url)
-                    .addHeader("Authorization", "Bearer " + key)
-                    .build();
+            Random rand = new Random();
+            for (int i=0; i<5;i++){
+                int n = rand.nextInt(20) + 1;
+                while (items.contains(n)) {
+                    n = rand.nextInt(20) + 1;
+                }
+                items.add(n);
+            }
 
-            Call call = client.newCall(request);
-            call.enqueue(new Callback() {
-                public void onResponse(Call call, Response response)
-                        throws IOException {
-                    ResponseBody rb = response.body();
-                    try {
-                        JSONObject Jobject = new JSONObject(rb.string());
-                        JSONArray Jarray = Jobject.getJSONArray("businesses");
-
-                        if (Jarray.length() > 0){
-                            JSONObject object  = Jarray.getJSONObject(0);
-                            String alias = (String) object.get("alias");
-                            id[0] = (String) object.get("id");
-                            menu[0] = "yelp.com/menu/" + alias;
+            for (int x: items){
+                String s = String.valueOf(x);
+                DocumentReference menuDoc = this.db.collection("menu").document(s);
+                menuDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                menu.add((String)document.get("name"));
+                                Toast.makeText(ViewRestaurant.this, "Item loaded.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(ViewRestaurant.this, "Error getting menu info.", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(ViewRestaurant.this, "Error getting menu info.", Toast.LENGTH_SHORT).show();
                         }
-
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
                     }
-                }
+                });
+            }
 
-                public void onFailure(Call call, IOException e) {
-                    e.printStackTrace();
-                }
-            });
 
-            sleep(1000);
 
-            String[] startHour = new String[1];
-            String[] endHour = new String[1];
 
             String url2 = "https://api.yelp.com/v3/businesses/" + id[0];
             Request request2 = new Request.Builder()
@@ -168,7 +175,7 @@ public class ViewRestaurant extends AppCompatActivity {
                 }
             });
 
-            sleep(1000);
+            sleep(2000);
 
             TextView tv = new TextView(ViewRestaurant.this);
             if (startHour[0] == null){
@@ -177,9 +184,24 @@ public class ViewRestaurant extends AppCompatActivity {
             if (endHour[0] == null){
                 endHour[0] = "N/A";
             }
-            String text = "Menu: " + menu[0]
-                    + "\nStarting Hour: " + startHour[0]
-                    + "\nEnding Hour: " + endHour[0];
+
+            String text = "Menu: ";
+            for (int i=0;i<5;i++){
+                int n = rand.nextInt(21);
+                while (items.contains(n)) {
+                    n = rand.nextInt(21);
+                }
+                items.add(n);
+                text += menuItems[n] + "\n";
+            }
+
+            int[] startingHours = {6, 7, 8, 9, 10};
+            int[] endingHours = {20, 21, 22, 23};
+            int startingRand = rand.nextInt(5);
+            int endingRand = rand.nextInt(4);
+
+            text += "\nStarting Hour: " + startingHours[startingRand]
+                    + "\nEnding Hour: " + endingHours[endingRand];
             tv.setText(text);
             tv.setGravity(Gravity.CENTER);
             tv.setBackgroundColor(Color.WHITE);
@@ -188,6 +210,10 @@ public class ViewRestaurant extends AppCompatActivity {
             GridLayout.LayoutParams title_layout = new GridLayout.LayoutParams();
             title_layout.setGravity(Gravity.CENTER_HORIZONTAL);
             grid.addView(tv, title_layout);
+
+
+
+//
         }else{
             testRestaurant = new Restaurant(lat, lng, name, 0 , 0);
             TextView tv = new TextView(ViewRestaurant.this);
@@ -203,4 +229,7 @@ public class ViewRestaurant extends AppCompatActivity {
         intent.putExtra("id", currUser.getId());
         startActivity(intent);
     }
+
+
 }
+
