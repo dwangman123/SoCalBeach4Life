@@ -2948,6 +2948,7 @@ id registerPhoneTextInput
 id registerUsernameTextInput
 id reverseSawtooth
 id reviewDescription
+id reviewImageView
 id reviewsScrollView
 id right
 id rightToLeft

@@ -31,6 +31,7 @@ id registerPasswordTextInput
 id registerPhoneTextInput
 id registerUsernameTextInput
 id reviewDescription
+id reviewImageView
 id reviewsScrollView
 id showParkingLots
 id trips

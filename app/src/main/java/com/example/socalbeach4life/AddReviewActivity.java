@@ -27,6 +27,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -37,6 +40,7 @@ public class AddReviewActivity extends AppCompatActivity {
     private String userName ="";
     private Review review;
     private FirebaseFirestore db;
+    private FirebaseStorage storage;
     private boolean testing = false;
     private static final int PICK_IMAGE_REQUEST = 9544;
     private Uri uploadedImg;
@@ -64,6 +68,7 @@ public class AddReviewActivity extends AppCompatActivity {
         this.review.setId(this.id);
         if(!testing) {
             this.db = FirebaseFirestore.getInstance();
+            this.storage = FirebaseStorage.getInstance();
             DocumentReference userDoc = this.db.collection("users").document(id);
             userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
@@ -141,6 +146,23 @@ public class AddReviewActivity extends AppCompatActivity {
         }
     }
 
+    private void persistImage() {
+        if (this.uploadedImg != null){
+            StorageReference storageRef = storage.getReference();
+            StorageReference reviewImageRef = storageRef.child("images/"+ this.review.getReviewId());
+
+            UploadTask uploadTask = reviewImageRef.putFile(this.uploadedImg);
+            uploadTask.addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                    backToReviewView();
+                }
+            });
+        } else {
+            backToReviewView();
+        }
+    }
+
     public void postReview(View view) {
         EditText ratingText = (EditText) findViewById(R.id.ratingEditText);
         EditText descriptionText = (EditText) findViewById(R.id.reviewDescription);
@@ -174,7 +196,7 @@ public class AddReviewActivity extends AppCompatActivity {
                     db.collection("reviews").document(name).set(wrapper).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            backToReviewView();
+                            persistImage();
                         }
                     });
                 }
