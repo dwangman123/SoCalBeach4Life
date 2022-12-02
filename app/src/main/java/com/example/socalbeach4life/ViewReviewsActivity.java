@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -93,12 +94,16 @@ public class ViewReviewsActivity extends AppCompatActivity {
         StorageReference storageRef = this.storage.getReference();
         StorageReference reviewImageRef = storageRef.child("images/"+ reviewId);
 
-        Glide.with(this).load(reviewImageRef).into(imageView);
-
-        builder.addContentView(imageView, new RelativeLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT));
-        builder.show();
+        reviewImageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(getApplicationContext()).load(uri).placeholder(android.R.drawable.progress_indeterminate_horizontal).error(android.R.drawable.stat_notify_error).into(imageView);;
+                builder.addContentView(imageView, new RelativeLayout.LayoutParams(
+                        1000,
+                        1000));
+                builder.show();
+            }
+        });
     }
 
     private void fillScreen(ReviewWrapper wrapper) {

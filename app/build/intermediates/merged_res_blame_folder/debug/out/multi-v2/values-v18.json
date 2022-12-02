@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.socalbeach4life.app-mergeDebugResources-32:/values-v18/values-v18.xml",
+            "outputFile": "com.example.socalbeach4life.app-mergeDebugResources-34:/values-v18/values-v18.xml",
             "map": [
                 {
                     "source": "/Users/vihanraj/.gradle/caches/transforms-3/c58d373ed049a7eb1c690dc0111a60ce/transformed/appcompat-1.5.1/res/values-v18/values-v18.xml",

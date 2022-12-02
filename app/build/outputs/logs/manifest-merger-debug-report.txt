@@ -9,13 +9,15 @@ MERGED from [com.google.android.material:material:1.6.1] /Users/vihanraj/.gradle
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/vihanraj/.gradle/caches/transforms-3/0d4d5e4a485d966bf2b9f3c2e6875eba/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /Users/vihanraj/.gradle/caches/transforms-3/5f4b7987e0fd291a1e3df81796b82486/transformed/appcompat-resources-1.5.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.5.1] /Users/vihanraj/.gradle/caches/transforms-3/c58d373ed049a7eb1c690dc0111a60ce/transformed/appcompat-1.5.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.firebaseui:firebase-ui-storage:7.2.0] /Users/vihanraj/.gradle/caches/transforms-3/b257cef7a0bf5bf86cdaa6d1df4e6553/transformed/firebase-ui-storage-7.2.0/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-analytics:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/3d262da54833bcb2281075593c99b4cd/transformed/firebase-analytics-21.2.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:17:1-44:12
 MERGED from [com.google.android.gms:play-services-location:21.0.0] /Users/vihanraj/.gradle/caches/transforms-3/545685f597ebb608dc3d284fc6e685fa/transformed/play-services-location-21.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:2:1-25:12
 MERGED from [androidx.test.uiautomator:uiautomator:2.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c079811d13d9439afab4e3f332cd1b3f/transformed/uiautomator-2.2.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:17:1-37:12
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.0] /Users/vihanraj/.gradle/caches/transforms-3/88ef8159e3d9d8f9e75e73887491c440/transformed/firebase-appcheck-interop-16.1.0/AndroidManifest.xml:15:1-25:12
+MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:17:1-37:12
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] /Users/vihanraj/.gradle/caches/transforms-3/540fad0a50f1ef9ef8b4101895f98d1c/transformed/firebase-auth-interop-19.0.2/AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/vihanraj/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:2:1-23:12
 MERGED from [com.google.firebase:firebase-common:20.2.0] /Users/vihanraj/.gradle/caches/transforms-3/10937fadba817768deaa1ef64a2daa67/transformed/firebase-common-20.2.0/AndroidManifest.xml:15:1-39:12
@@ -33,9 +35,12 @@ MERGED from [com.google.android.gms:play-services-measurement-base:21.2.0] /User
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/vihanraj/.gradle/caches/transforms-3/39336f8e3b764d2a541ea36e2ebf6bc8/transformed/play-services-stats-17.0.2/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/vihanraj/.gradle/caches/transforms-3/76df4810bbcf7ab4e9b7b955e8556f9e/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/vihanraj/.gradle/caches/transforms-3/0754173320ebcd802f5ded27c0c4457b/transformed/play-services-basement-18.1.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/849293d0f0597d635d465abe23350d31/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/vihanraj/.gradle/caches/transforms-3/8a023e3408618a7a13a76d132a8578ab/transformed/glide-4.11.0/AndroidManifest.xml:2:1-12:12
 MERGED from [androidx.fragment:fragment:1.3.6] /Users/vihanraj/.gradle/caches/transforms-3/6abf1724491fd042667fa09026f85232/transformed/fragment-1.3.6/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.5.1] /Users/vihanraj/.gradle/caches/transforms-3/e20117961a6b409c5c7be3c278bc9be2/transformed/activity-1.5.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/25473c409c6a66fb25bcec1e20c5c298/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/24760b930b569e7692365e1f0bf70fc0/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/4e78f2a2916aa7054e79d297ef9c7415/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/896f5cc9321a69b6006856db84eba6f7/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /Users/vihanraj/.gradle/caches/transforms-3/faa65bd394f815b1de4c64eea8d06e61/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:17:1-24:12
@@ -50,7 +55,11 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/vihan
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/vihanraj/.gradle/caches/transforms-3/9c85eebf2bf13a66dd23cb15e8151dcc/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/e294a06d8192a1c42e3e28283dbbfd46/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/vihanraj/.gradle/caches/transforms-3/2e713e408704f4d88b71c4e42afe29d2/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/ed93b5b515c614354d3135e5d9e7feb5/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.1.0] /Users/vihanraj/.gradle/caches/transforms-3/67f36d690f8ee5fd7c12afa3575d6710/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/38c2a8ba9d2f3ba7892986e37e5310e1/transformed/media-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/359db8d8ef730bb1ea59e9f924b36037/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/edd345d36b6a1b1aafbb4e3e26cffeb4/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.8.0] /Users/vihanraj/.gradle/caches/transforms-3/1069db316bca11bc96fb54ef6fc44009/transformed/core-1.8.0/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/2b6871d03ebdf58b0bd8e74ec9166e52/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/vihanraj/.gradle/caches/transforms-3/06f771c9eca05d7366e9d8c981c19bf6/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:17:1-37:12
@@ -64,6 +73,8 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/viha
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/vihanraj/.gradle/caches/transforms-3/6608320caae0e606d1e4c2f3f86caba7/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/vihanraj/.gradle/caches/transforms-3/23f3c1d78966af829963c95ef430b450/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/vihanraj/.gradle/caches/transforms-3/66a895c425a8924d6caa04dd48c021df/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /Users/vihanraj/.gradle/caches/transforms-3/aafc425fa3cb674fdaaddcce95e452dd/transformed/gifdecoder-4.11.0/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/3f41bc2ab89e5e6c9dd60ad58e83bafd/transformed/exifinterface-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/7ab02361ab547bcdb1277b8b9a81f575/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/4382e8ea5df8f6f0f9f14826e2257a04/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/aa1a7ffb64566c65bacd8f2a1b57e020/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -104,6 +115,8 @@ MERGED from [com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.
 MERGED from [com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:24:5-67
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:13:5-67
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:13:5-67
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:26:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:22:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/vihanraj/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:10:5-67
@@ -132,10 +145,12 @@ MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gra
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:15:5-23:19
 MERGED from [androidx.test.uiautomator:uiautomator:2.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c079811d13d9439afab4e3f332cd1b3f/transformed/uiautomator-2.2.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.test.uiautomator:uiautomator:2.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c079811d13d9439afab4e3f332cd1b3f/transformed/uiautomator-2.2.0/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:27:5-35:19
-MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:27:5-35:19
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:28:5-36:19
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.0] /Users/vihanraj/.gradle/caches/transforms-3/88ef8159e3d9d8f9e75e73887491c440/transformed/firebase-appcheck-interop-16.1.0/AndroidManifest.xml:23:5-20
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.0] /Users/vihanraj/.gradle/caches/transforms-3/88ef8159e3d9d8f9e75e73887491c440/transformed/firebase-appcheck-interop-16.1.0/AndroidManifest.xml:23:5-20
+MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:27:5-35:19
+MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:27:5-35:19
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] /Users/vihanraj/.gradle/caches/transforms-3/540fad0a50f1ef9ef8b4101895f98d1c/transformed/firebase-auth-interop-19.0.2/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] /Users/vihanraj/.gradle/caches/transforms-3/540fad0a50f1ef9ef8b4101895f98d1c/transformed/firebase-auth-interop-19.0.2/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/vihanraj/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:13:5-21:19
@@ -162,6 +177,8 @@ MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/v
 MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/vihanraj/.gradle/caches/transforms-3/76df4810bbcf7ab4e9b7b955e8556f9e/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/vihanraj/.gradle/caches/transforms-3/0754173320ebcd802f5ded27c0c4457b/transformed/play-services-basement-18.1.0/AndroidManifest.xml:20:5-24:19
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/vihanraj/.gradle/caches/transforms-3/0754173320ebcd802f5ded27c0c4457b/transformed/play-services-basement-18.1.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/vihanraj/.gradle/caches/transforms-3/8a023e3408618a7a13a76d132a8578ab/transformed/glide-4.11.0/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/vihanraj/.gradle/caches/transforms-3/8a023e3408618a7a13a76d132a8578ab/transformed/glide-4.11.0/AndroidManifest.xml:10:5-20
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/vihanraj/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/vihanraj/.gradle/caches/transforms-3/571a9eda0782be924803a548098eaf49/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.core:core:1.8.0] /Users/vihanraj/.gradle/caches/transforms-3/1069db316bca11bc96fb54ef6fc44009/transformed/core-1.8.0/AndroidManifest.xml:24:5-89
@@ -172,6 +189,8 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/vihanraj/.gradle/cac
 MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/vihanraj/.gradle/caches/transforms-3/972a34782ad2684d5f56d1264f544f46/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/vihanraj/.gradle/caches/transforms-3/d3b906b8c2e1b59010cbc2be3eb7cfce/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/vihanraj/.gradle/caches/transforms-3/d3b906b8c2e1b59010cbc2be3eb7cfce/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /Users/vihanraj/.gradle/caches/transforms-3/aafc425fa3cb674fdaaddcce95e452dd/transformed/gifdecoder-4.11.0/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /Users/vihanraj/.gradle/caches/transforms-3/aafc425fa3cb674fdaaddcce95e452dd/transformed/gifdecoder-4.11.0/AndroidManifest.xml:9:5-20
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.8.0] /Users/vihanraj/.gradle/caches/transforms-3/1069db316bca11bc96fb54ef6fc44009/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
 	android:supportsRtl
@@ -284,6 +303,8 @@ MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /Users/vihanraj/.grad
 MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /Users/vihanraj/.gradle/caches/transforms-3/5f4b7987e0fd291a1e3df81796b82486/transformed/appcompat-resources-1.5.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.5.1] /Users/vihanraj/.gradle/caches/transforms-3/c58d373ed049a7eb1c690dc0111a60ce/transformed/appcompat-1.5.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.5.1] /Users/vihanraj/.gradle/caches/transforms-3/c58d373ed049a7eb1c690dc0111a60ce/transformed/appcompat-1.5.1/AndroidManifest.xml:20:5-44
+MERGED from [com.firebaseui:firebase-ui-storage:7.2.0] /Users/vihanraj/.gradle/caches/transforms-3/b257cef7a0bf5bf86cdaa6d1df4e6553/transformed/firebase-ui-storage-7.2.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebaseui:firebase-ui-storage:7.2.0] /Users/vihanraj/.gradle/caches/transforms-3/b257cef7a0bf5bf86cdaa6d1df4e6553/transformed/firebase-ui-storage-7.2.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-analytics:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/3d262da54833bcb2281075593c99b4cd/transformed/firebase-analytics-21.2.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/3d262da54833bcb2281075593c99b4cd/transformed/firebase-analytics-21.2.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:20:5-44
@@ -294,10 +315,12 @@ MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gra
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:6:5-8:41
 MERGED from [androidx.test.uiautomator:uiautomator:2.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c079811d13d9439afab4e3f332cd1b3f/transformed/uiautomator-2.2.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.test.uiautomator:uiautomator:2.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c079811d13d9439afab4e3f332cd1b3f/transformed/uiautomator-2.2.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.0] /Users/vihanraj/.gradle/caches/transforms-3/88ef8159e3d9d8f9e75e73887491c440/transformed/firebase-appcheck-interop-16.1.0/AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.0] /Users/vihanraj/.gradle/caches/transforms-3/88ef8159e3d9d8f9e75e73887491c440/transformed/firebase-appcheck-interop-16.1.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] /Users/vihanraj/.gradle/caches/transforms-3/540fad0a50f1ef9ef8b4101895f98d1c/transformed/firebase-auth-interop-19.0.2/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] /Users/vihanraj/.gradle/caches/transforms-3/540fad0a50f1ef9ef8b4101895f98d1c/transformed/firebase-auth-interop-19.0.2/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/vihanraj/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:5:5-7:41
@@ -332,12 +355,18 @@ MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/v
 MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/vihanraj/.gradle/caches/transforms-3/76df4810bbcf7ab4e9b7b955e8556f9e/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/vihanraj/.gradle/caches/transforms-3/0754173320ebcd802f5ded27c0c4457b/transformed/play-services-basement-18.1.0/AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/vihanraj/.gradle/caches/transforms-3/0754173320ebcd802f5ded27c0c4457b/transformed/play-services-basement-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/849293d0f0597d635d465abe23350d31/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/849293d0f0597d635d465abe23350d31/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/vihanraj/.gradle/caches/transforms-3/8a023e3408618a7a13a76d132a8578ab/transformed/glide-4.11.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/vihanraj/.gradle/caches/transforms-3/8a023e3408618a7a13a76d132a8578ab/transformed/glide-4.11.0/AndroidManifest.xml:6:5-8:41
 MERGED from [androidx.fragment:fragment:1.3.6] /Users/vihanraj/.gradle/caches/transforms-3/6abf1724491fd042667fa09026f85232/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.3.6] /Users/vihanraj/.gradle/caches/transforms-3/6abf1724491fd042667fa09026f85232/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.5.1] /Users/vihanraj/.gradle/caches/transforms-3/e20117961a6b409c5c7be3c278bc9be2/transformed/activity-1.5.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.5.1] /Users/vihanraj/.gradle/caches/transforms-3/e20117961a6b409c5c7be3c278bc9be2/transformed/activity-1.5.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/25473c409c6a66fb25bcec1e20c5c298/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/25473c409c6a66fb25bcec1e20c5c298/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/24760b930b569e7692365e1f0bf70fc0/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/24760b930b569e7692365e1f0bf70fc0/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/4e78f2a2916aa7054e79d297ef9c7415/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/4e78f2a2916aa7054e79d297ef9c7415/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/896f5cc9321a69b6006856db84eba6f7/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
@@ -366,8 +395,16 @@ MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/vihanraj/.gradle/caches/
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/e294a06d8192a1c42e3e28283dbbfd46/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/vihanraj/.gradle/caches/transforms-3/2e713e408704f4d88b71c4e42afe29d2/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/vihanraj/.gradle/caches/transforms-3/2e713e408704f4d88b71c4e42afe29d2/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/ed93b5b515c614354d3135e5d9e7feb5/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/ed93b5b515c614354d3135e5d9e7feb5/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.1.0] /Users/vihanraj/.gradle/caches/transforms-3/67f36d690f8ee5fd7c12afa3575d6710/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.customview:customview:1.1.0] /Users/vihanraj/.gradle/caches/transforms-3/67f36d690f8ee5fd7c12afa3575d6710/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/38c2a8ba9d2f3ba7892986e37e5310e1/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/38c2a8ba9d2f3ba7892986e37e5310e1/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/359db8d8ef730bb1ea59e9f924b36037/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/359db8d8ef730bb1ea59e9f924b36037/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/edd345d36b6a1b1aafbb4e3e26cffeb4/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/edd345d36b6a1b1aafbb4e3e26cffeb4/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.8.0] /Users/vihanraj/.gradle/caches/transforms-3/1069db316bca11bc96fb54ef6fc44009/transformed/core-1.8.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.8.0] /Users/vihanraj/.gradle/caches/transforms-3/1069db316bca11bc96fb54ef6fc44009/transformed/core-1.8.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/2b6871d03ebdf58b0bd8e74ec9166e52/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
@@ -394,6 +431,10 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/vihanraj/.
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/vihanraj/.gradle/caches/transforms-3/23f3c1d78966af829963c95ef430b450/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/vihanraj/.gradle/caches/transforms-3/66a895c425a8924d6caa04dd48c021df/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/vihanraj/.gradle/caches/transforms-3/66a895c425a8924d6caa04dd48c021df/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /Users/vihanraj/.gradle/caches/transforms-3/aafc425fa3cb674fdaaddcce95e452dd/transformed/gifdecoder-4.11.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /Users/vihanraj/.gradle/caches/transforms-3/aafc425fa3cb674fdaaddcce95e452dd/transformed/gifdecoder-4.11.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/3f41bc2ab89e5e6c9dd60ad58e83bafd/transformed/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/3f41bc2ab89e5e6c9dd60ad58e83bafd/transformed/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/7ab02361ab547bcdb1277b8b9a81f575/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/7ab02361ab547bcdb1277b8b9a81f575/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/vihanraj/.gradle/caches/transforms-3/4382e8ea5df8f6f0f9f14826e2257a04/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
@@ -422,6 +463,8 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:12:5-79
 MERGED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:12:5-79
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:25:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/vihanraj/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:9:5-79
@@ -456,6 +499,8 @@ ADDED from [com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.g
 		ADDED from [com.google.android.gms:play-services-maps:17.0.1] /Users/vihanraj/.gradle/caches/transforms-3/1d9b2a1c09f684d8431b54d3dd4295b5/transformed/play-services-maps-17.0.1/AndroidManifest.xml:40:13-50
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:16:9-22:19
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:29:9-35:19
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:28:9-34:19
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:28:9-34:19
 MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/vihanraj/.gradle/caches/transforms-3/84338c2a75ca7837d53d0e8c5744483a/transformed/firebase-installations-17.1.0/AndroidManifest.xml:14:9-20:19
@@ -476,6 +521,12 @@ ADDED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.grad
 		ADDED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:21:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-firestore:24.4.0] /Users/vihanraj/.gradle/caches/transforms-3/be5dee0d2f9d5015732cda45344f69d3/transformed/firebase-firestore-24.4.0/AndroidManifest.xml:20:17-111
+meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
+ADDED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:32:13-34:85
+	android:value
+		ADDED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:34:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-storage:20.1.0] /Users/vihanraj/.gradle/caches/transforms-3/787e4d679652b044f337c2ea65d66171/transformed/firebase-storage-20.1.0/AndroidManifest.xml:33:17-107
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/c79d454104e372032e3e15cf08ace626/transformed/play-services-measurement-api-21.2.0/AndroidManifest.xml:24:5-68
 MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/vihanraj/.gradle/caches/transforms-3/28ddc18981ef6985fa46f58dd9796580/transformed/play-services-measurement-21.2.0/AndroidManifest.xml:25:5-68

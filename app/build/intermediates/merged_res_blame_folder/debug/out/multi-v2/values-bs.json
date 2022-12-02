@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.socalbeach4life.app-mergeDebugResources-32:/values-bs/values-bs.xml",
+            "outputFile": "com.example.socalbeach4life.app-mergeDebugResources-34:/values-bs/values-bs.xml",
             "map": [
                 {
                     "source": "/Users/vihanraj/.gradle/caches/transforms-3/efaf76447af5302c4db6925ce0f6874a/transformed/play-services-base-18.0.1/res/values-bs/values.xml",
