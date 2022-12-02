@@ -1,3 +1,10 @@
+# Sprint changes
+In the final sprint of the semester, we made the following changes:
+1. We added hours to each of the beaches
+2. We added menus to each of the restaurants
+3. We added the option for users to add pictures to their reviews for the beaches
+These changes are fully functional and can be seen when running our application
+
 # Running the app 
 This app is meant to be used on a Pixel 3a API 33 device. When using an emulator in Android Studio, please use this device with this API level, or some of the features may not work.
 
