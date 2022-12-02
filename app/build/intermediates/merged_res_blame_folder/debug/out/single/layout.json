@@ -1,38 +1,38 @@
 [
     {
-        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_review_main.xml",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_review_main.xml"
+        "merged": "com.example.socalbeach4life.app-mergeDebugResources-35:/layout/activity_maps.xml",
+        "source": "com.example.socalbeach4life.app-main-38:/layout/activity_maps.xml"
     },
     {
-        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/beach_marker.xml",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/beach_marker.xml"
+        "merged": "com.example.socalbeach4life.app-mergeDebugResources-35:/layout/activity_view_restaurant.xml",
+        "source": "com.example.socalbeach4life.app-main-38:/layout/activity_view_restaurant.xml"
     },
     {
-        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_logout.xml",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_logout.xml"
+        "merged": "com.example.socalbeach4life.app-mergeDebugResources-35:/layout/beach_marker.xml",
+        "source": "com.example.socalbeach4life.app-main-38:/layout/beach_marker.xml"
     },
     {
-        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_view_restaurant.xml",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_view_restaurant.xml"
+        "merged": "com.example.socalbeach4life.app-mergeDebugResources-35:/layout/activity_view_trips.xml",
+        "source": "com.example.socalbeach4life.app-main-38:/layout/activity_view_trips.xml"
     },
     {
-        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_view_reviews.xml",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_view_reviews.xml"
+        "merged": "com.example.socalbeach4life.app-mergeDebugResources-35:/layout/activity_add_review.xml",
+        "source": "com.example.socalbeach4life.app-main-38:/layout/activity_add_review.xml"
     },
     {
-        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_add_review.xml",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_add_review.xml"
+        "merged": "com.example.socalbeach4life.app-mergeDebugResources-35:/layout/activity_logout.xml",
+        "source": "com.example.socalbeach4life.app-main-38:/layout/activity_logout.xml"
     },
     {
-        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_maps.xml",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_maps.xml"
+        "merged": "com.example.socalbeach4life.app-mergeDebugResources-35:/layout/activity_start.xml",
+        "source": "com.example.socalbeach4life.app-main-38:/layout/activity_start.xml"
     },
     {
-        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_view_trips.xml",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_view_trips.xml"
+        "merged": "com.example.socalbeach4life.app-mergeDebugResources-35:/layout/activity_view_reviews.xml",
+        "source": "com.example.socalbeach4life.app-main-38:/layout/activity_view_reviews.xml"
     },
     {
-        "merged": "com.example.socalbeach4life.app-mergeDebugResources-33:/layout/activity_start.xml",
-        "source": "com.example.socalbeach4life.app-main-36:/layout/activity_start.xml"
+        "merged": "com.example.socalbeach4life.app-mergeDebugResources-35:/layout/activity_review_main.xml",
+        "source": "com.example.socalbeach4life.app-main-38:/layout/activity_review_main.xml"
     }
 ]

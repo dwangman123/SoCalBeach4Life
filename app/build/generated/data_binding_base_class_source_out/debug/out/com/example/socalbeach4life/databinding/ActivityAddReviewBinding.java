@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,14 +34,18 @@ public final class ActivityAddReviewBinding implements ViewBinding {
   @NonNull
   public final EditText reviewDescription;
 
+  @NonNull
+  public final ImageView reviewImageView;
+
   private ActivityAddReviewBinding(@NonNull ConstraintLayout rootView, @NonNull CheckBox anonCheck,
       @NonNull TextView beachNameView, @NonNull EditText ratingEditText,
-      @NonNull EditText reviewDescription) {
+      @NonNull EditText reviewDescription, @NonNull ImageView reviewImageView) {
     this.rootView = rootView;
     this.anonCheck = anonCheck;
     this.beachNameView = beachNameView;
     this.ratingEditText = ratingEditText;
     this.reviewDescription = reviewDescription;
+    this.reviewImageView = reviewImageView;
   }
 
   @Override
@@ -94,8 +99,14 @@ public final class ActivityAddReviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.reviewImageView;
+      ImageView reviewImageView = ViewBindings.findChildViewById(rootView, id);
+      if (reviewImageView == null) {
+        break missingId;
+      }
+
       return new ActivityAddReviewBinding((ConstraintLayout) rootView, anonCheck, beachNameView,
-          ratingEditText, reviewDescription);
+          ratingEditText, reviewDescription, reviewImageView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
